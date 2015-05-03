@@ -1,8 +1,7 @@
 package com.example.madhavi.spraguelib;
-
+//testing
 import android.app.Application;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.parse.Parse;
 import com.parse.ParseACL;
