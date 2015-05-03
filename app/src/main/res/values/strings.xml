@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="edit_message">Enter details</string>
+    <string name="button_send">SAVE SETTINGS</string>
+    <string name="button_view">UPDATE SETTINGS </string>
+    <string name="list_all">View User Notification Preferences</string>
+    <string name="button_update">UPDATE</string>
+    <string name="button_mainpage">MAIN PAGE</string>
+    <string name="action_search">Search</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_display_message">My Message</string>
+    <string name="title_activity_edit">EditActivity</string>
+    <string name="title_activity_list_books">ListBooks</string>
+    <string name="book_renewal_alert">Book Renewal Alert</string>
+    <string name="book_recall_alert">Book Recall Alert</string>
+    <string name="book_availability_alert">Book Availability Alert</string>
+    <string name="library_news_events">Library News and Events</string>
+    <string name="save">Save Settings</string>
+    <string name="title_activity_list">ListActivity</string>
+    <string name="title_activity_my_preferences">MyPreferences</string>
+    <string name="title_activity_notifications">Notifications</string>
+    <string name="title_activity_book_rental">Book__Rental</string>
+    <!-- book rental -->
+    <string name="serial_no">Serial#</string>
+    <string name="book_name">Book Name</string>
+    <string name="user_id">User Name</string>
+    <string name="checkout_date">Checkout Date</string>
+    <string name="return_date">Return Date</string>
+    <string name="book_borrow">Book Borrow</string>
+    <string name="save_details">Save Details</string>
+    <string name="title_activity_rental_book">Rental_book</string>
+    <string name="title_activity_rental">RentalActivity</string>
+    <string name="title_activity_list_rental">ListRentalActivity</string>
+    <string name="title_activity_log">Sprague Library</string>
+    <string name="list_rental_details">View Rental Details</string>
+    <string name="book_return">Book Return</string>
+    <!-- Login -->
+    <string name="login">Login to Library</string>
+    <string name="username">UserName</string>
+    <string name="password">Password</string>
+    <string name="attempts">Attempted:</string>
+    <string name="title_activity_create_user">Create User</string>
+    <string name="title_activity_list_user_details">View Users</string>
+    <string name="title_activity_admin">AdminActivity</string>
+    <string name="title_activity_book_return">BookReturn</string>
+    <string name="submit">Submit</string>
+    <string name="title_activity_library_news">LibraryNews</string>
+    <string name="valid_till">Valid Till(YYYY:MM:DD HH:MM:SS)</string>
+    <string name="save_news_events">Save News and Events</string>
+    <string name="app_name">Sprague Library</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_catalog">Catalog</string>
+    <string name="title_activity_favorites">Favorites</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_library_info">LibraryInfo</string>
+    <string name="title_activity_services">Services</string>
+    <string name="title_activity_help">Help</string>
+    <string name="title_activity_laptop_rental">LaptopRental</string>
+    <string name="title_activity_study_room_rental">StudyRoomRental</string>
+    <string name="title_activity_book_renewal">BookRenewal</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_mainpage">MainPage</string>
+
+    <string name="parse_app_id">YOUR_APPLICATION_ID</string>
+    <string name="parse_client_key">YOUR_CLIENT_KEY</string>
+    <string name="title_activity_send_email_app">SendEmailAppActivity</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="register">REGISTER</string>
+    <string name="email_id">Email ID</string>
+    <string name="cancel">CANCEL</string>
+    <string name="register_here">Register Here !</string>
+    <string name="welcome">Welcome to MCN Library</string>
+    <string name="logout">Log Out</string>
+    <string name="notification">Settings for Notification</string>
+
+</resources>

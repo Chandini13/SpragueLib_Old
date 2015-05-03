@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RentalActivity">
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/user_id"
+                android:id="@+id/textView6"
+                />
+
+            <EditText
+                android:layout_width="213dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText1"
+                android:inputType="text"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/book_name"
+                android:id="@+id/textView3"
+                />
+
+            <EditText
+                android:layout_width="217dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText2"
+                android:inputType="text"
+                />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="@string/submit"
+                android:id="@+id/button"
+                android:onClick="bookReturn1"
+                android:clickable="true"
+                android:focusable="true"
+                />
+        </TableRow>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="@string/list_rental_details"
+                android:id="@+id/button1"
+                android:onClick="list_rental_details"
+                />
+        </TableRow>
+
+    </TableLayout>
+
+    </LinearLayout>

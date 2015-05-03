@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context=".Notifications">
+
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="8"
+    android:shrinkColumns="*"  android:stretchColumns="*" android:background="#ffffe9b7"
+    android:baselineAligned="false"
+    android:touchscreenBlocksFocus="false">
+
+    <TableRow
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:textSize="18dp" android:text="User Notification Preferences"  android:layout_span="3"
+        android:padding="18dip" android:background="#b0b0b0"
+        android:textColor="#000"/>
+
+  </TableRow>
+
+
+</TableLayout>
+
+<TableLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1"
+    android:background="#ffffe9b7">
+
+    <ListView android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/mainListView">
+    </ListView>
+
+</TableLayout>
+
+</LinearLayout>

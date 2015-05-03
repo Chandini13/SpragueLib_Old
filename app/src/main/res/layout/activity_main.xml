@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".Notifications">
+
+
+    <TableLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:shrinkColumns="*"  android:stretchColumns="*" android:background="#ffffe9b7"
+        android:baselineAligned="false"
+        android:touchscreenBlocksFocus="false">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:layout_marginTop="18dp"
+            android:text="@string/notification"
+            android:textColor="#ff1c101c"
+            android:textSize="30sp" />
+
+    <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal">
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/book_renewal_alert"
+                android:id="@+id/checkBox2"
+                android:layout_marginTop="23dp"
+                android:textSize="25sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/book_recall_alert"
+                android:id="@+id/checkBox3"
+                android:layout_marginTop="19dp"
+                android:textSize="25dp" />
+
+        </TableRow>
+
+        <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+            android:layout_marginTop="19dp">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/book_availability_alert"
+            android:id="@+id/checkBox4"
+            android:textSize="25dp" />
+
+    </TableRow>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/library_news_events"
+                android:id="@+id/checkBox5"
+                android:layout_marginTop="19dp"
+                android:textSize="25dp" />
+
+        </TableRow>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/selectedopt" />
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <RelativeLayout android:layout_column="0">
+
+                <Button
+                    android:layout_width="300dp"
+                    android:layout_height="75dp"
+                    android:clickable="true"
+                    android:text="@string/button_send"
+                    android:onClick="insertBook"
+                    android:textSize="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="23dp" />
+            </RelativeLayout>
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

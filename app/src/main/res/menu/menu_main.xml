@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <item android:id="@+id/create_datab"
+        android:title="Home"
+        android:icon="@drawable/ic_launcher"
+        app:showAsAction="ifRoom|withText" />
+    <item android:id="@+id/logout"
+        android:title="Sign Out"
+        android:icon="@drawable/ic_launcher"
+        app:showAsAction="ifRoom|withText" />
+</menu>
