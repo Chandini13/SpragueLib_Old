@@ -12,18 +12,13 @@ tools:context="books.libraryapplication.Notifications">
     android:layout_weight="1"
     android:background="#ffffe9b7">
 
+
+
     <ListView android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/mainListView"
         android:choiceMode="multipleChoice">
     </ListView>
-
-    <Button
-        android:id="@+id/btnDel"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="@string/lblBtnDel" />
 
 </TableLayout>
 
