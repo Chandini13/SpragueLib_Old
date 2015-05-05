@@ -132,7 +132,7 @@ public class Notifications extends ActionBarActivity {
                 }
             }
 
-          
+
         final ListView bookListView = (ListView) findViewById(R.id.mainListView);
         final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.notifications_custom_list, R.id.rowTextView2, rows);
         bookListView.setAdapter(listAdapter);
