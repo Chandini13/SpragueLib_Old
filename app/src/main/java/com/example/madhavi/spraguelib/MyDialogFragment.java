@@ -12,8 +12,8 @@ public class MyDialogFragment extends DialogFragment{
 
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("App Title");
-        builder.setMessage("This is an alert with no consequence");
+        builder.setTitle("Notice : Login Required ");
+        builder.setMessage("Login as registered user to access this activity");
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // You don't have to do anything here if you just want it dismissed when clicked
