@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.parse.ParseObject;
@@ -24,16 +23,14 @@ public class Notifications extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
 
-        final ArrayList<String> rows = new ArrayList<>();
         String userid = LogActivity.loginuser;
 
-/** Reference to the delete button of the layout main.xml */
-        Button btnDel = (Button) findViewById(R.id.btnDel);
+        //Notification Table Entry
 
 
+        final ArrayList<String> rows = new ArrayList<>();
 
         try {
-
 
 
             //checking renew alert in settings
@@ -53,6 +50,7 @@ public class Notifications extends ActionBarActivity {
                 Date date = new Date();
                 query1.whereEqualTo("user_name", userid);
                 query1.whereLessThan("return_date", date);
+                query1.whereEqualTo("notification_renew",1);
                 query1.find();
                 int result = query1.count();
                 if (result > 0) {
@@ -76,6 +74,7 @@ public class Notifications extends ActionBarActivity {
                 final ParseQuery<ParseObject> settings2 = ParseQuery.getQuery("Table_BookRental");
                 settings2.whereEqualTo("user_name", userid);
                 settings2.whereEqualTo("placed_hold", 1);
+                settings2.whereEqualTo("notification_recall", 1);
 
                 if (settings2.count() > 0) {
                     settings2.find();
@@ -90,61 +89,58 @@ public class Notifications extends ActionBarActivity {
 
                 }
             }
-                    //Notification on Book Availability
+            //Notification on Book Availability
 
 
-                    final ParseQuery<ParseObject> q1= ParseQuery.getQuery("Table_Books");
-                    q1.whereEqualTo("Availability",1);
-                    q1.whereEqualTo("placed_hold",1);
-            ArrayList<String> books =  new ArrayList<>();
+            final ParseQuery<ParseObject> q1 = ParseQuery.getQuery("Table_Books");
+            q1.whereEqualTo("Availability", 1);
+            q1.whereEqualTo("placed_hold", 1);
 
-            for (ParseObject objects2 : q1.find())
-            {
+            ArrayList<String> books = new ArrayList<>();
+
+            for (ParseObject objects2 : q1.find()) {
                 books.add(objects2.getString("book_name"));
 
             }
-                    if(books.size()>0)
-                       {
-                        final ParseQuery<ParseObject> q2 = ParseQuery.getQuery("Table_PlaceHold");
-                           for (int i=0;i<books.size();i++)
-                           {
-                               q2.whereEqualTo("user_name", userid);
-                               q2.whereEqualTo("book_name", books.get(i));
-                               if (q2.count() > 0) {
-                                   for (ParseObject objects1 : q2.find()) {
-                                       objects1.put("availability", 1);
-                                       objects1.save();
-                                   }
-                               }
-                           }
-    }
-    final ParseQuery<ParseObject> q2 = ParseQuery.getQuery("Table_PlaceHold");
-    q2.whereEqualTo("user_name", userid);
-    q2.whereEqualTo("availability", 1);
+            if (books.size() > 0) {
+                final ParseQuery<ParseObject> q2 = ParseQuery.getQuery("Table_PlaceHold");
+                for (int i = 0; i < books.size(); i++) {
+                    q2.whereEqualTo("user_name", userid);
+                    q2.whereEqualTo("book_name", books.get(i));
+                    q2.whereEqualTo("notification_flag", 1);
+                    if (q2.count() > 0) {
+                        for (ParseObject objects1 : q2.find()) {
+                            objects1.put("availability", 1);
+                            objects1.save();
+                        }
+                    }
+                }
+            }
+            final ParseQuery<ParseObject> q2 = ParseQuery.getQuery("Table_PlaceHold");
+            q2.whereEqualTo("user_name", userid);
+            q2.whereEqualTo("availability", 1);
 
-    if (q2.count() > 0) {
-        q2.find();
-        int result1 = q2.count();
+            if (q2.count() > 0) {
+                q2.find();
+                int result1 = q2.count();
 
-        if (result1 > 0) {
-            rows.add("FOLLOWING REQUESTED BOOKS ARE NOW AVAILABLE :");
-        }
-        for (ParseObject objects2 : q2.find()) {
-            rows.add(objects2.getString("book_name"));
-        }
-    }
-
-                    final ListView bookListView = (ListView) findViewById(R.id.mainListView);
-                    final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.notifications_custom_list, R.id.rowTextView2, rows);
-                     bookListView.setAdapter(listAdapter);
-
-
-        }
-            catch(Exception e)
-            {
-                Log.e("error", e.toString());
+                if (result1 > 0) {
+                    rows.add("FOLLOWING REQUESTED BOOKS ARE NOW AVAILABLE :");
+                }
+                for (ParseObject objects2 : q2.find()) {
+                    rows.add(objects2.getString("book_name"));
+                }
             }
 
+          
+        final ListView bookListView = (ListView) findViewById(R.id.mainListView);
+        final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.notifications_custom_list, R.id.rowTextView2, rows);
+        bookListView.setAdapter(listAdapter);
+
+        }
+        catch (Exception e) {
+            Log.e("error", e.toString());
+        }
     }
 
     @Override
