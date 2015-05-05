@@ -73,5 +73,6 @@
     <string name="welcome">Welcome to MCN Library</string>
     <string name="logout">Log Out</string>
     <string name="notification">Settings for Notification</string>
+    <string name="title_activity_my_dialog_fragment">MyDialogFragment</string>
 
 </resources>

@@ -24,7 +24,7 @@ public class LogActivity extends ActionBarActivity {
 
     public static String loginuser;
     public static String loginpassword;
-    public static int loginflag;
+    public static int loginflag=0;
     private EditText username = null;
     private EditText password = null;
     private TextView attempts;

@@ -14,55 +14,14 @@ public class ParseApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "WERJNSfLVanTwlL0Kj6KASGY5CKv4j7enWll0NHH", "Zv0LBIJlOIp7HCgbr0WoJrDmZh3Aiv7MOXQa3VaN");
-
-        // Initialize Crash Reporting.
-        // ParseCrashReporting.enable(this);
-
         // Enable Local Datastore.
-           //Parse.enableLocalDatastore(this);
+        Parse.enableLocalDatastore(this);
 
         // Add your initialization code here
-
-        //   Parse.initialize(this, "RA6NTZjUUHq6LsdWd0B7jXwQE7OXofS8xErPwyvx", "QNa12OryQAc23JWbRD3Ldhj89wCpvYGzxk8a2ctW");
+        Parse.initialize(this, "WERJNSfLVanTwlL0Kj6KASGY5CKv4j7enWll0NHH", "Zv0LBIJlOIp7HCgbr0WoJrDmZh3Aiv7MOXQa3VaN");
 
         //  ParseInstallation.getCurrentInstallation().saveInBackground();
 
-
-//      final ParseObject data1 = new ParseObject("TestDatabase1");
-//      data1.put("no", 2);
-//      data1.put("title", "Science");
-//      data1.put("author", "pleeger");
-//      data1.saveInBackground();
-
-
-//        ParseQuery<ParseObject> query = ParseQuery.getQuery("TestTable1");
-//        query.getInBackground("0AcCu0pjMT",new GetCallback<ParseObject>() {
-//            @Override
-//            public void done(ParseObject parseObject, ParseException e) {
-//                if(e==null)
-//                {
-//                    String user_name =  data6.getString("userid");
-//                    String name=user_name;
-//
-//
-//                }
-//
-//            }
-//        });
-
-//        ParseQuery<ParseObject> query1 = ParseQuery.getQuery("TestTable1");
-//        query1.whereEqualTo("userid", "2");
-//        query1.findInBackground(new FindCallback<ParseObject>() {
-//            @Override
-//            public void done(List<ParseObject> parseObjects, ParseException e) {
-//                if(e==null)
-//                {
-//                    Log.d("userid","password" + parseObjects.size()+ "password");
-//                }
-//            }
-//        });
 
 //          ParseUser.enableAutomaticUser();
         ParseACL defaultACL = new ParseACL();
@@ -104,36 +63,6 @@ public class ParseApplication extends Application {
 
 
 
-
-   /*     try {
-
-            final ParseQuery<ParseObject> query3 = ParseQuery.getQuery("Table_BookRental");
-
-            final ParseQuery<ParseObject> query5 = ParseQuery.getQuery("Table_Books");
-
-
-            int result = query3.count();
-            if (result > 0)
-            {
-                for (ParseObject objects1 : query3.find())
-                {
-                    String book_name=objects1.getString("book_name");
-                    query5.whereNotEqualTo("book_name",book_name);
-                    for (ParseObject objects2 : query5.find())
-                    {
-
-                        objects2.put("Availability",0);
-                        objects2.save();
-                    }
-
-                }
-
-            }
-        }
-        catch(Exception e)
-        {
-            Log.e("Error", e.toString());
-        }*/
 
         }
     }

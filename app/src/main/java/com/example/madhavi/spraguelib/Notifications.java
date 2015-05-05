@@ -28,6 +28,8 @@ public class Notifications extends ActionBarActivity {
 
         try {
 
+
+
             //checking renew alert in settings
 
             final ParseQuery<ParseObject> settings = ParseQuery.getQuery("Table_Settings");
@@ -66,6 +68,7 @@ public class Notifications extends ActionBarActivity {
             if (settings1.count() > 0) {
 
                 final ParseQuery<ParseObject> settings2 = ParseQuery.getQuery("Table_BookRental");
+                settings2.whereEqualTo("user_name", userid);
                 settings2.whereEqualTo("placed_hold", 1);
 
                 if (settings2.count() > 0) {

@@ -1,5 +1,6 @@
 package com.example.madhavi.spraguelib;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -50,8 +51,17 @@ public class MainPage extends ActionBarActivity {
         setttingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainPage.this.getApplicationContext(), MainActivity.class);
-                startActivity(i);
+
+                if(LogActivity.loginflag==0)
+                {
+                    MyDialogFragment dialog;
+                    dialog = new MyDialogFragment();
+                    dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+                }
+                else {
+                    Intent i = new Intent(MainPage.this.getApplicationContext(), MainActivity.class);
+                    startActivity(i);
+                     }
             }
         });
         libraryinfoButton.setOnClickListener(new View.OnClickListener() {
