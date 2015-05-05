@@ -74,5 +74,6 @@
     <string name="logout">Log Out</string>
     <string name="notification">Settings for Notification</string>
     <string name="title_activity_my_dialog_fragment">MyDialogFragment</string>
+    <string name="lblBtnDel">Delete selected items</string>
 
 </resources>
