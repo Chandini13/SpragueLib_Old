@@ -1,6 +1,6 @@
 package com.example.madhavi.spraguelib;
 
-
+///checking Git
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -14,6 +14,7 @@ import com.parse.ParseUser;
 
 public class MainPage extends ActionBarActivity {
     private Button catalogButton;
+
     private Button favoritesButton;
     private Button setttingsButton;
     private Button libraryinfoButton;
@@ -84,8 +85,7 @@ public class MainPage extends ActionBarActivity {
             public void onClick(View v) {
                 if(LogActivity.loginflag==0)
                 {
-                    MyDialogFragment dialog;
-                    dialog = new MyDialogFragment();
+                    MyDialogFragment dialog = new MyDialogFragment();
                     dialog.show(getFragmentManager(), "MyDialogFragmentTag");
                 }
                 else {
