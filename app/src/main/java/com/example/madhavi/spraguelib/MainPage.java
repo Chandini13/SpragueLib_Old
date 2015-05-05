@@ -43,15 +43,31 @@ public class MainPage extends ActionBarActivity {
         favoritesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                 if(LogActivity.loginflag==0)
+                {
+                    MyDialogFragment dialog;
+                    dialog = new MyDialogFragment();
+                    dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+                }
+                else {
                 Intent i = new Intent(MainPage.this.getApplicationContext(), Favorites.class);
                 startActivity(i);
+                }
             }
         });
         setttingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                 if(LogActivity.loginflag==0)
+                {
+                    MyDialogFragment dialog;
+                    dialog = new MyDialogFragment();
+                    dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+                }
+                else {
                 Intent i = new Intent(MainPage.this.getApplicationContext(), MainActivity.class);
                 startActivity(i);
+                }
             }
         });
         libraryinfoButton.setOnClickListener(new View.OnClickListener() {
@@ -64,15 +80,31 @@ public class MainPage extends ActionBarActivity {
         notificationsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                 if(LogActivity.loginflag==0)
+                {
+                    MyDialogFragment dialog;
+                    dialog = new MyDialogFragment();
+                    dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+                }
+                else {
                 Intent i = new Intent(MainPage.this.getApplicationContext(), Notifications.class);
                 startActivity(i);
+                }
             }
         });
         servicesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                 if(LogActivity.loginflag==0)
+                {
+                    MyDialogFragment dialog;
+                    dialog = new MyDialogFragment();
+                    dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+                }
+                else {
                 Intent i = new Intent(MainPage.this.getApplicationContext(), Services.class);
                 startActivity(i);
+                }
             }
         });
 //        helpButton.setOnClickListener(new View.OnClickListener() {
