@@ -85,7 +85,8 @@ public class MainPage extends ActionBarActivity {
             public void onClick(View v) {
                 if(LogActivity.loginflag==0)
                 {
-                    MyDialogFragment dialog = new MyDialogFragment();
+                    MyDialogFragment dialog;
+                    dialog = new MyDialogFragment();
                     dialog.show(getFragmentManager(), "MyDialogFragmentTag");
                 }
                 else {
