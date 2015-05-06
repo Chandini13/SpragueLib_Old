@@ -45,7 +45,7 @@ public class Notifications extends ActionBarActivity {
             settings.whereEqualTo("username", userid);
             settings.whereEqualTo("renewal_alert", 1);
 
-            if (settings.count() > 0) {
+            if (settings.find().size() > 0) {
 
                 //retrieving books to be renewed
 
