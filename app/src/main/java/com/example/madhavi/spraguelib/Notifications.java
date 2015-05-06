@@ -58,9 +58,9 @@ public class Notifications extends ActionBarActivity {
                 query1.whereLessThan("return_date", date);
                 query1.whereEqualTo("notification_renew", 1);
                 query1.find();
-                int result = query1.count();
+                int result = query1.find().size();
                 if (result > 0) {
-                    rows.add("FOLLOWING BOOKS NEED TO BE RETURNED:                        ");
+                    rows.add("FOLLOWING BOOKS NEED TO BE RETURNED:                                    ");
                 }
                 for (ParseObject objects1 : query1.find()) {
                     rows.add(objects1.getString("book_name"));
@@ -75,19 +75,19 @@ public class Notifications extends ActionBarActivity {
             settings1.whereEqualTo("username", userid);
             settings1.whereEqualTo("recall_alert", 1);
 
-            if (settings1.count() > 0) {
+            if (settings1.find().size() > 0) {
 
                 final ParseQuery<ParseObject> settings2 = ParseQuery.getQuery("Table_BookRental");
                 settings2.whereEqualTo("user_name", userid);
                 settings2.whereEqualTo("placed_hold", 1);
                 settings2.whereEqualTo("notification_recall", 1);
 
-                if (settings2.count() > 0) {
+                if (settings2.find().size() > 0) {
                     settings2.find();
-                    int result = settings2.count();
+                    int result = settings2.find().size();
 
                     if (result > 0) {
-                        rows1.add("FOLLOWING BOOKS ARE RECALLED :");
+                        rows1.add("FOLLOWING BOOKS ARE RECALLED :                                      ");
                     }
                     for (ParseObject objects2 : settings2.find()) {
                         rows1.add(objects2.getString("book_name"));
@@ -114,7 +114,7 @@ public class Notifications extends ActionBarActivity {
                     q2.whereEqualTo("user_name", userid);
                     q2.whereEqualTo("book_name", books.get(i));
 
-                    if (q2.count() > 0) {
+                    if (q2.find().size() > 0) {
                         for (ParseObject objects1 : q2.find()) {
                             objects1.put("availability", 1);
                             objects1.save();
@@ -127,18 +127,21 @@ public class Notifications extends ActionBarActivity {
             q2.whereEqualTo("availability", 1);
             q2.whereEqualTo("notification_flag", 1);
 
-            if (q2.count() > 0) {
+            if (q2.find().size() > 0) {
                 q2.find();
-                int result1 = q2.count();
-
+                int result1 = q2.find().size();
                 if (result1 > 0) {
-                    rows2.add("FOLLOWING REQUESTED BOOKS ARE NOW AVAILABLE :               ");
+                    rows2.add("FOLLOWING REQUESTED BOOKS ARE NOW AVAILABLE :                            ");
                 }
                 for (ParseObject objects2 : q2.find()) {
                     rows2.add(objects2.getString("book_name"));
                 }
             }
 
+            if(rows.size()==0 && rows1.size()==0&&rows2.size()==0)
+            {
+                rows2.add("No Notifications Right Now !                                        ");
+            }
             /** Reference to the delete button of the layout main.xml */
             Button btnDel = (Button) findViewById(R.id.btnDel);
 

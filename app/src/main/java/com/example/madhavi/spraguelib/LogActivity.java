@@ -19,9 +19,6 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.RequestPasswordResetCallback;
 
-import java.util.ArrayList;
-import java.util.Date;
-
 
 public class LogActivity extends ActionBarActivity {
 
@@ -40,11 +37,6 @@ public class LogActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log);
-
-
-
-
-
 
             //Forget Password - sending email
 
