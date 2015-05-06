@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
@@ -59,7 +60,7 @@ public class Notifications extends ActionBarActivity {
                 query1.find();
                 int result = query1.count();
                 if (result > 0) {
-                    rows.add("FOLLOWING BOOKS NEED TO BE RETURNED:");
+                    rows.add("FOLLOWING BOOKS NEED TO BE RETURNED:                        ");
                 }
                 for (ParseObject objects1 : query1.find()) {
                     rows.add(objects1.getString("book_name"));
@@ -112,7 +113,7 @@ public class Notifications extends ActionBarActivity {
                 for (int i = 0; i < books.size(); i++) {
                     q2.whereEqualTo("user_name", userid);
                     q2.whereEqualTo("book_name", books.get(i));
-                    q2.whereEqualTo("notification_flag", 1);
+
                     if (q2.count() > 0) {
                         for (ParseObject objects1 : q2.find()) {
                             objects1.put("availability", 1);
@@ -124,13 +125,14 @@ public class Notifications extends ActionBarActivity {
             final ParseQuery<ParseObject> q2 = ParseQuery.getQuery("Table_PlaceHold");
             q2.whereEqualTo("user_name", userid);
             q2.whereEqualTo("availability", 1);
+            q2.whereEqualTo("notification_flag", 1);
 
             if (q2.count() > 0) {
                 q2.find();
                 int result1 = q2.count();
 
                 if (result1 > 0) {
-                    rows2.add("FOLLOWING REQUESTED BOOKS ARE NOW AVAILABLE :");
+                    rows2.add("FOLLOWING REQUESTED BOOKS ARE NOW AVAILABLE :               ");
                 }
                 for (ParseObject objects2 : q2.find()) {
                     rows2.add(objects2.getString("book_name"));
@@ -160,6 +162,8 @@ public class Notifications extends ActionBarActivity {
                 @Override
                 public void onClick(View v) {
                     /** Getting the checked items from the listview */
+
+
                     SparseBooleanArray checkedItemPositions = bookListView.getCheckedItemPositions();
                     SparseBooleanArray checkedItemPositions1 = bookListView1.getCheckedItemPositions();
                     SparseBooleanArray checkedItemPositions2 = bookListView2.getCheckedItemPositions();
@@ -168,21 +172,60 @@ public class Notifications extends ActionBarActivity {
 
                     for (int i = itemCount - 1; i >= 0; i--) {
                         if (checkedItemPositions.get(i)) {
-                            listAdapter.remove(rows.get(i));
+
+                            final ParseQuery<ParseObject> renew = ParseQuery.getQuery("Table_BookRental");
+                            renew.whereEqualTo("user_name", LogActivity.loginuser);
+                            renew.whereEqualTo("book_name", rows.get(i));
+                            try {
+                                for(ParseObject p1:renew.find())
+                                {
+                                    p1.put("notification_renew",0);
+                                    p1.save();
+                                }
+                                listAdapter.remove(rows.get(i));
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
                     int itemCount1 = bookListView1.getCount();
 
-                    for (int i = itemCount1 - 1; i >= 0; i--) {
-                        if (checkedItemPositions1.get(i)) {
-                            listAdapter1.remove(rows1.get(i));
+                    for (int i1 = itemCount1 - 1; i1 >= 0; i1--) {
+                        if (checkedItemPositions1.get(i1)) {
+
+                            final ParseQuery<ParseObject> renew = ParseQuery.getQuery("Table_BookRental");
+                            renew.whereEqualTo("user_name", LogActivity.loginuser);
+                            renew.whereEqualTo("book_name", rows1.get(i1));
+                            try {
+                                for(ParseObject p1:renew.find())
+                                {
+                                    p1.put("notification_recall",0);
+                                    p1.save();
+                                }
+                                listAdapter1.remove(rows1.get(i1));
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
                     int itemCount2 = bookListView2.getCount();
 
-                    for (int i = itemCount2 - 1; i >= 0; i--) {
-                        if (checkedItemPositions2.get(i)) {
-                            listAdapter2.remove(rows2.get(i));
+                    for (int i2 = itemCount2 - 1; i2 >= 0; i2--) {
+                        if (checkedItemPositions2.get(i2)) {
+
+                            final ParseQuery<ParseObject> renew = ParseQuery.getQuery("Table_PlaceHold");
+                            renew.whereEqualTo("user_name", LogActivity.loginuser);
+                            renew.whereEqualTo("book_name", rows2.get(i2));
+                            try {
+                                for(ParseObject p1:renew.find())
+                                {
+                                    p1.put("notification_flag",0);
+                                    p1.save();
+                                }
+                                listAdapter2.remove(rows2.get(i2));
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
                     checkedItemPositions.clear();
@@ -191,6 +234,7 @@ public class Notifications extends ActionBarActivity {
                     listAdapter.notifyDataSetChanged();
                     listAdapter1.notifyDataSetChanged();
                     listAdapter2.notifyDataSetChanged();
+
                 }
             };
 
