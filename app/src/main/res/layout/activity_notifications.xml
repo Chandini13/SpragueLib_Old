@@ -2,13 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
 android:layout_height="match_parent"
+    android:layout_weight="1"
 android:orientation="vertical"
 tools:context="books.libraryapplication.Notifications">
 
 
 <TableLayout
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
     android:layout_weight="1"
     android:background="#ffffe9b7">
 
@@ -20,14 +21,43 @@ tools:context="books.libraryapplication.Notifications">
         android:text="@string/lblBtnDel" />
 
 
-    <ListView
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ListView
         android:id="@+id/mainListView"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
 
         >
     </ListView>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ListView   android:id="@+id/mainListView1"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent">
+
+        </ListView>
+    </TableRow>
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ListView   android:id="@+id/mainListView2"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent">
+
+        </ListView>
+    </TableRow>
 
 </TableLayout>
 
+
 </LinearLayout>
+
+

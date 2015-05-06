@@ -32,6 +32,8 @@ public class Notifications extends ActionBarActivity {
 
 
         final ArrayList<String> rows = new ArrayList<>();
+        final ArrayList<String> rows1 = new ArrayList<>();
+        final ArrayList<String> rows2 = new ArrayList<>();
 
         try {
 
@@ -84,10 +86,10 @@ public class Notifications extends ActionBarActivity {
                     int result = settings2.count();
 
                     if (result > 0) {
-                        rows.add("FOLLOWING BOOKS ARE RECALLED :");
+                        rows1.add("FOLLOWING BOOKS ARE RECALLED :");
                     }
                     for (ParseObject objects2 : settings2.find()) {
-                        rows.add(objects2.getString("book_name"));
+                        rows1.add(objects2.getString("book_name"));
                     }
 
                 }
@@ -128,10 +130,10 @@ public class Notifications extends ActionBarActivity {
                 int result1 = q2.count();
 
                 if (result1 > 0) {
-                    rows.add("FOLLOWING REQUESTED BOOKS ARE NOW AVAILABLE :");
+                    rows2.add("FOLLOWING REQUESTED BOOKS ARE NOW AVAILABLE :");
                 }
                 for (ParseObject objects2 : q2.find()) {
-                    rows.add(objects2.getString("book_name"));
+                    rows2.add(objects2.getString("book_name"));
                 }
             }
 
@@ -140,9 +142,18 @@ public class Notifications extends ActionBarActivity {
 
 
             final ListView bookListView = (ListView) findViewById(R.id.mainListView);
+
+            final ListView bookListView1 = (ListView) findViewById(R.id.mainListView1);
+
+            final ListView bookListView2 = (ListView) findViewById(R.id.mainListView2);
+
             final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, rows);
+            final ArrayAdapter<String> listAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, rows1);
+            final ArrayAdapter<String> listAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, rows2);
             bookListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-            //  bookListView.setAdapter(listAdapter);
+            bookListView1.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+            bookListView2.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+            //  bookListView1.setAdapter(listAdapter);
 
             /** Defining a click event listener for the button "Delete" */
             View.OnClickListener listenerDel = new View.OnClickListener() {
@@ -150,6 +161,9 @@ public class Notifications extends ActionBarActivity {
                 public void onClick(View v) {
                     /** Getting the checked items from the listview */
                     SparseBooleanArray checkedItemPositions = bookListView.getCheckedItemPositions();
+                    SparseBooleanArray checkedItemPositions1 = bookListView1.getCheckedItemPositions();
+                    SparseBooleanArray checkedItemPositions2 = bookListView2.getCheckedItemPositions();
+
                     int itemCount = bookListView.getCount();
 
                     for (int i = itemCount - 1; i >= 0; i--) {
@@ -157,8 +171,26 @@ public class Notifications extends ActionBarActivity {
                             listAdapter.remove(rows.get(i));
                         }
                     }
+                    int itemCount1 = bookListView1.getCount();
+
+                    for (int i = itemCount1 - 1; i >= 0; i--) {
+                        if (checkedItemPositions1.get(i)) {
+                            listAdapter1.remove(rows1.get(i));
+                        }
+                    }
+                    int itemCount2 = bookListView2.getCount();
+
+                    for (int i = itemCount2 - 1; i >= 0; i--) {
+                        if (checkedItemPositions2.get(i)) {
+                            listAdapter2.remove(rows2.get(i));
+                        }
+                    }
                     checkedItemPositions.clear();
+                    checkedItemPositions1.clear();
+                    checkedItemPositions2.clear();
                     listAdapter.notifyDataSetChanged();
+                    listAdapter1.notifyDataSetChanged();
+                    listAdapter2.notifyDataSetChanged();
                 }
             };
 
@@ -168,6 +200,8 @@ public class Notifications extends ActionBarActivity {
 
             /** Setting the adapter to the ListView */
             bookListView.setAdapter(listAdapter);
+            bookListView1.setAdapter(listAdapter1);
+            bookListView2.setAdapter(listAdapter2);
 
 
 //        final ListView bookListView = (ListView) findViewById(R.id.mainListView);
