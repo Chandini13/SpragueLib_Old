@@ -76,5 +76,8 @@
     <string name="title_activity_my_dialog_fragment">MyDialogFragment</string>
     <string name="lblBtnDel">Delete</string>
     <string name="image">image</string>
+    <string name="signin">Login</string>
+
+    <string name="home">Home</string>
 
 </resources>

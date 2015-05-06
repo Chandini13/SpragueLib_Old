@@ -3,11 +3,11 @@
     >
 
     <item android:id="@+id/create_datab"
-        android:title="Home"
+        android:title="@string/home"
         android:icon="@drawable/ic_launcher"
         app:showAsAction="ifRoom|withText" />
     <item android:id="@+id/logout"
-        android:title="Sign Out"
+        android:title="@string/logout"
         android:icon="@drawable/ic_launcher"
         app:showAsAction="ifRoom|withText" />
 </menu>
