@@ -140,7 +140,7 @@ public class Notifications extends ActionBarActivity {
 
             if(rows.size()==0 && rows1.size()==0&&rows2.size()==0)
             {
-                rows2.add("No Notifications Right Now !                                        ");
+                rows2.add("No Notifications Right Now !                                                  ");
             }
             /** Reference to the delete button of the layout main.xml */
             Button btnDel = (Button) findViewById(R.id.btnDel);

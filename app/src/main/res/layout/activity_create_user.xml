@@ -12,7 +12,7 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        android:background="#ff5a8344">
+        android:background="@drawable/lightimage">
 
         <TextView
             android:id="@+id/textView1"
@@ -34,7 +34,8 @@
             android:layout_marginTop="50dp"
             android:text="@string/user_id"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#ff2b100f" />
+            android:textColor="#ff2b100f"
+            style="@style/AppTheme" />
 
         <EditText
             android:id="@+id/editText1"
@@ -60,7 +61,8 @@
             android:layout_marginTop="38dp"
             android:text="@string/password"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#ff271c27" />
+            android:textColor="#ff271c27"
+            style="@style/AppTheme" />
 
         <EditText
             android:id="@+id/editText2"
@@ -108,7 +110,9 @@
             android:layout_alignStart="@+id/editText3"
             android:layout_marginTop="37dp"
             android:layout_alignRight="@+id/editText3"
-            android:layout_alignEnd="@+id/editText3" />
+            android:layout_alignEnd="@+id/editText3"
+            style="@android:style/TextAppearance"
+            android:background="#ffffad49" />
 
 
 
