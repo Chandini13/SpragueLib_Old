@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.parse.ParseObject;
@@ -50,7 +53,7 @@ public class Notifications extends ActionBarActivity {
                 Date date = new Date();
                 query1.whereEqualTo("user_name", userid);
                 query1.whereLessThan("return_date", date);
-                query1.whereEqualTo("notification_renew",1);
+                query1.whereEqualTo("notification_renew", 1);
                 query1.find();
                 int result = query1.count();
                 if (result > 0) {
@@ -132,16 +135,51 @@ public class Notifications extends ActionBarActivity {
                 }
             }
 
+            /** Reference to the delete button of the layout main.xml */
+            Button btnDel = (Button) findViewById(R.id.btnDel);
 
-        final ListView bookListView = (ListView) findViewById(R.id.mainListView);
-        final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.notifications_custom_list, R.id.rowTextView2, rows);
-        bookListView.setAdapter(listAdapter);
 
-        }
-        catch (Exception e) {
+            final ListView bookListView = (ListView) findViewById(R.id.mainListView);
+            final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, rows);
+            bookListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+            //  bookListView.setAdapter(listAdapter);
+
+            /** Defining a click event listener for the button "Delete" */
+            View.OnClickListener listenerDel = new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    /** Getting the checked items from the listview */
+                    SparseBooleanArray checkedItemPositions = bookListView.getCheckedItemPositions();
+                    int itemCount = bookListView.getCount();
+
+                    for (int i = itemCount - 1; i >= 0; i--) {
+                        if (checkedItemPositions.get(i)) {
+                            listAdapter.remove(rows.get(i));
+                        }
+                    }
+                    checkedItemPositions.clear();
+                    listAdapter.notifyDataSetChanged();
+                }
+            };
+
+
+            /** Setting the event listener for the delete button */
+            btnDel.setOnClickListener(listenerDel);
+
+            /** Setting the adapter to the ListView */
+            bookListView.setAdapter(listAdapter);
+
+
+//        final ListView bookListView = (ListView) findViewById(R.id.mainListView);
+//        final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.notifications_custom_list, R.id.rowTextView2, rows);
+//        bookListView.setAdapter(listAdapter);
+
+        } catch (Exception e) {
             Log.e("error", e.toString());
         }
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
