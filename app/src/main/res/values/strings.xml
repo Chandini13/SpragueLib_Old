@@ -75,5 +75,6 @@
     <string name="notification">Settings for Notification</string>
     <string name="title_activity_my_dialog_fragment">MyDialogFragment</string>
     <string name="lblBtnDel">Delete</string>
+    <string name="image">image</string>
 
 </resources>
