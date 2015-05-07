@@ -79,5 +79,8 @@
     <string name="signin">Login</string>
 
     <string name="home">Home</string>
+    <string name="librarydetails">Sprague Library Info</string>
+    <string name="libray_hours">Library Hours</string>
+    <string name="library_hours">Library Hours</string>
 
 </resources>

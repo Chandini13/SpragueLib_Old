@@ -76,7 +76,7 @@ public class MainPage extends ActionBarActivity {
         libraryinfoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainPage.this.getApplicationContext(), LibraryInfo.class);
+                Intent i = new Intent(MainPage.this.getApplicationContext(), LibraryNews.class);
                 startActivity(i);
             }
         });

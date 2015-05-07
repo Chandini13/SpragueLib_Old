@@ -2,11 +2,8 @@ package com.example.madhavi.spraguelib;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
 
 public class LibraryNews extends ActionBarActivity {
 
@@ -14,6 +11,8 @@ public class LibraryNews extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library_news);
+
+
     }
 
 
@@ -39,7 +38,7 @@ public class LibraryNews extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-public void saveNews(View view)
+/*public void saveNews(View view)
 {
     EditText validText=(EditText) findViewById(R.id.editText1);
     EditText eventText=(EditText)findViewById(R.id.editText2);
@@ -56,5 +55,5 @@ public void saveNews(View view)
     }
     validText.setText("");
     eventText.setText("");
-}
+}*/
 }

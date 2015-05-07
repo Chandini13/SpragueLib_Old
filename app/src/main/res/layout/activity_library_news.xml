@@ -4,60 +4,51 @@
     android:orientation="vertical"
     tools:context=".LibraryNews">
 
-    <TableLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/lightimage">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/valid_till"
-                android:id="@+id/textView4" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/librarydetails"
+            android:id="@+id/textView"
+            android:layout_column="0"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="185dp"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:textIsSelectable="true" />
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/editText1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/library_hours"
+            android:id="@+id/textView4"
+            android:layout_column="9"
+            android:textStyle="bold"
+            android:theme="@style/Base.TextAppearance.AppCompat.Widget.ActionBar.Menu"
+            android:textSize="19dp"
+            android:layout_below="@+id/textView"
+            android:layout_alignLeft="@+id/imageView"
+            android:layout_alignStart="@+id/imageView"
+            android:layout_marginTop="46dp" />
 
-        </TableRow>
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="170dp"
+            android:id="@+id/imageView"
+            android:background="@drawable/hours"
+            android:layout_marginTop="87dp"
+            android:theme="@android:style/Animation.Dialog"
+            android:visibility="visible"
+            android:layout_column="10"
+            android:layout_below="@+id/textView"
+            android:layout_alignLeft="@+id/textView"
+            android:layout_alignStart="@+id/textView" />
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/library_news_events"
-                android:id="@+id/textView7" />
-
-            <EditText
-                android:layout_width="65dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/editText2"
-                />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/save_news_events"
-                android:id="@+id/button2"
-                android:onClick="saveNews"/>
-        </TableRow>
-
-    </TableLayout>
+    </RelativeLayout>
 
 </LinearLayout>
