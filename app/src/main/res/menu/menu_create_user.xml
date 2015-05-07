@@ -3,7 +3,7 @@
     >
 
     <item android:id="@+id/create_datab"
-        android:title="HOME"
+        android:title="@string/home"
         android:icon="@drawable/homes"
         app:showAsAction="ifRoom|withText" />
 

@@ -24,13 +24,13 @@ public class LogActivity extends ActionBarActivity {
 
     public static String loginuser;
     public static String loginpassword;
-    public static int loginflag=0;
+    public static int loginflag = 0;
     private EditText username = null;
     private EditText password = null;
     private TextView attempts;
     private Button login;
     String toAdds;
- //   String toAddress;
+    //   String toAddress;
     int counter = 3;
 
     @Override
@@ -38,7 +38,7 @@ public class LogActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log);
 
-            //Forget Password - sending email
+        //Forget Password - sending email
 
 
         Button forget = (Button) findViewById(R.id.forgetpassword);
@@ -48,35 +48,33 @@ public class LogActivity extends ActionBarActivity {
                 try {
                     username = (EditText) findViewById(R.id.editText1);
                     String user = username.getText().toString();
-                      if(user.isEmpty())
-                      {
-                          Toast.makeText(getApplicationContext(), "Enter registered UserName for recovering password",
-                                  Toast.LENGTH_SHORT).show();
-                      }
-                    else {
+                    if (user.isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "Enter registered UserName for recovering password",
+                                Toast.LENGTH_SHORT).show();
+                    } else {
 //                    final ParseQuery<ParseUser> account = ParseUser.getQuery();
 //                    account.whereEqualTo("username",user);
-                          ParseQuery query = ParseUser.getQuery();
-                          query.whereEqualTo("username", username.getText().toString());
+                        ParseQuery query = ParseUser.getQuery();
+                        query.whereEqualTo("username", username.getText().toString());
 
-                          query.find();
-                          ParseObject p = query.getFirst();
-                          String email = p.getString("email");
+                        query.find();
+                        ParseObject p = query.getFirst();
+                        String email = p.getString("email");
 
-                          ParseUser.requestPasswordResetInBackground(email,
-                                  new RequestPasswordResetCallback() {
-                                      public void done(ParseException e) {
-                                          if (e == null) {
-                                              Toast.makeText(getApplicationContext(), "Check your registered email account for resetting password",
-                                                      Toast.LENGTH_SHORT).show();
-                                          } else {
-                                              Toast.makeText(getApplicationContext(), "Enter registered UserName for recovering password",
-                                                      Toast.LENGTH_SHORT).show();
-                                          }
-                                      }
-                                  });
+                        ParseUser.requestPasswordResetInBackground(email,
+                                new RequestPasswordResetCallback() {
+                                    public void done(ParseException e) {
+                                        if (e == null) {
+                                            Toast.makeText(getApplicationContext(), "Check your registered email account for resetting password",
+                                                    Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(getApplicationContext(), "Enter registered UserName for recovering password",
+                                                    Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
 
-                      }
+                    }
 
                 } catch (Exception e) {
                     Log.e("Error", e.toString());
@@ -99,7 +97,6 @@ public class LogActivity extends ActionBarActivity {
         login = (Button) findViewById(R.id.button1);
         loginuser = username.getText().toString();
         loginpassword = password.getText().toString();
-
 
 
         ParseUser.logInInBackground(loginuser, loginpassword, new LogInCallback() {
@@ -125,23 +122,22 @@ public class LogActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_log, menu);
+        getMenuInflater().inflate(R.menu.menu_create_user, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId()) {
+            case R.id.create_datab:
+                LogActivity.loginflag = 0;
+                Intent intent = new Intent(this, MainPage.class);
+                startActivity(intent);
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+                break;
+
         }
-
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 }
 

@@ -3,10 +3,10 @@
 
     <item android:id="@+id/register"
         android:title="@string/register"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/register"
         app:showAsAction="ifRoom|withText" />
     <item android:id="@+id/login"
         android:title="@string/signin"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/login"
         app:showAsAction="ifRoom|withText" />
 </menu>
