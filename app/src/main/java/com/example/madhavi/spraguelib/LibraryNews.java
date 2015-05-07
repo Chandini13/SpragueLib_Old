@@ -2,8 +2,17 @@ package com.example.madhavi.spraguelib;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 public class LibraryNews extends ActionBarActivity {
 
@@ -12,7 +21,30 @@ public class LibraryNews extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library_news);
 
+        try {
+            final ArrayList<String> rows2 = new ArrayList<>();
+            final ParseQuery<ParseObject> q2 = ParseQuery.getQuery("Table_Library");
+            Date date = new Date();
 
+            q2.whereGreaterThan("valid_till", date);
+
+
+            if (q2.find().size() > 0) {
+
+
+                for (ParseObject objects2 : q2.find()) {
+                    rows2.add(objects2.getString("library_events"));
+                }
+            }
+
+            final ListView bookListView2 = (ListView) findViewById(R.id.listView1);
+            final ArrayAdapter<String> listAdapter2 = new ArrayAdapter<String>(this, R.layout.notifications_custom_list,R.id.rowTextView2, rows2);
+            bookListView2.setAdapter(listAdapter2);
+        }
+        catch(Exception e)
+        {
+            Log.e("error",e.toString());
+        }
     }
 
 
