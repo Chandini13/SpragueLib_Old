@@ -125,6 +125,7 @@ public class BookRenewal extends ActionBarActivity {
             /** Setting the adapter to the ListView */
             bookListView.setAdapter(listAdapter);
 
+
             Toast.makeText(getApplicationContext(), "Book Renewed Successfully",
                     Toast.LENGTH_SHORT).show();
         }
