@@ -105,7 +105,7 @@ public class MainPage extends ActionBarActivity {
                     dialog.show(getFragmentManager(), "MyDialogFragmentTag");
                 }
                 else {
-                    Intent i = new Intent(MainPage.this.getApplicationContext(), Services.class);
+                    Intent i = new Intent(MainPage.this.getApplicationContext(), BookRenewal.class);
                     startActivity(i);
                 }
             }

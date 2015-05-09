@@ -82,5 +82,7 @@
     <string name="librarydetails">Sprague Library Info</string>
     <string name="libray_hours">Library Hours</string>
     <string name="library_hours">Library Hours</string>
+    <string name="book_renewal_service">Book Renewal Service</string>
+    <string name="renew_book">Renew Book</string>
 
 </resources>
