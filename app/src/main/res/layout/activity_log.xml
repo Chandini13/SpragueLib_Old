@@ -2,7 +2,7 @@
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="@drawable/lightimage"
+
 
     >
 <RelativeLayout
@@ -12,7 +12,7 @@ android:background="@drawable/lightimage"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/lightimage">
+    android:background="@drawable/bluebb">
 
     <TextView
         android:id="@+id/textView1"
@@ -21,9 +21,11 @@ android:background="@drawable/lightimage"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        android:text="@string/app_name"
+        android:text="@string/app_login"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#ff1c101c" />
+        android:textColor="#ff1c101c"
+        android:textSize="29dp"
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/textView2"
@@ -31,10 +33,12 @@ android:background="@drawable/lightimage"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView1"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:text="@string/username"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#ff2c221f" />
+        android:textColor="#ff2c221f"
+        android:textSize="21dp"
+        android:textIsSelectable="true" />
 
     <EditText
         android:id="@+id/editText1"
@@ -46,7 +50,8 @@ android:background="@drawable/lightimage"
         android:ems="10"
         android:textColor="#ff0a0207"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentEnd="true"
+        android:focusable="true">
 
         <requestFocus />
     </EditText>
@@ -57,10 +62,11 @@ android:background="@drawable/lightimage"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/textView2"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="50dp"
         android:text="@string/password"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#ff200f1c" />
+        android:textColor="#ff200f1c"
+        android:textSize="21dp" />
 
     <EditText
         android:id="@+id/editText2"
@@ -73,7 +79,9 @@ android:background="@drawable/lightimage"
         android:layout_alignRight="@+id/editText1"
         android:layout_alignEnd="@+id/editText1"
         android:layout_alignLeft="@+id/editText1"
-        android:layout_alignStart="@+id/editText1" />
+        android:layout_alignStart="@+id/editText1"
+        android:editable="false"
+        android:backgroundTint="#ff74979f" />
 
     <Button
         android:id="@+id/button1"
@@ -81,26 +89,27 @@ android:background="@drawable/lightimage"
         android:layout_height="wrap_content"
         android:onClick="login"
         android:text="@string/login"
-        android:layout_below="@+id/editText2"
-        android:layout_alignLeft="@+id/forgetpassword"
-        android:layout_alignStart="@+id/forgetpassword"
-        android:layout_alignRight="@+id/forgetpassword"
-        android:layout_alignEnd="@+id/forgetpassword"
         style="@android:style/Holo.SegmentedButton"
-        android:background="#ffffbd5e" />
+        android:background="#ffffbd5e"
+        android:layout_below="@+id/editText2"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignStart="@+id/editText2"
+        android:layout_marginTop="75dp"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_alignEnd="@+id/textView1" />
     <Button
         android:id="@+id/forgetpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         android:text="@string/forget_password"
-        android:layout_marginTop="28dp"
-        android:layout_below="@+id/button1"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
-        android:layout_marginLeft="45dp"
-        android:layout_marginStart="45dp"
-        style="@style/AppTheme" />
+        style="@style/AppTheme"
+        android:layout_alignTop="@+id/button1"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignStart="@+id/button1"
+        android:layout_marginTop="75dp"
+        android:layout_alignRight="@+id/button1"
+        android:layout_alignEnd="@+id/button1" />
 
     <!--  <TextView
           android:id="@+id/textView4"

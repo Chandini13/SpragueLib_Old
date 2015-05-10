@@ -12,7 +12,7 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        android:background="@drawable/lightimage">
+        android:background="@drawable/blueb">
 
         <TextView
             android:id="@+id/textView1"
@@ -23,7 +23,9 @@
             android:layout_marginTop="18dp"
             android:text="@string/register_here"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ff3a3b39" />
+            android:textColor="#ff142547"
+            android:textSize="23dp"
+            android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/textView2"

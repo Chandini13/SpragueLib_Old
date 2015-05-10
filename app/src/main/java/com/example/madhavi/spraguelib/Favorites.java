@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -105,8 +104,6 @@ public class Favorites extends ActionBarActivity {
             bookListView.setAdapter(listAdapter);
 
 
-            Toast.makeText(getApplicationContext(), "Book Renewed Successfully",
-                    Toast.LENGTH_SHORT).show();
         }
         catch(ParseException e){
             e.printStackTrace();

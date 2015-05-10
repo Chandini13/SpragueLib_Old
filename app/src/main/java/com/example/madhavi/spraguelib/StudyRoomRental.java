@@ -89,7 +89,7 @@ public class StudyRoomRental extends ActionBarActivity {
 
                     p1.put("user_name", LogActivity.loginuser);
                     p1.put("service", "Room Reserved on  "+ requestdate + " at " + requesttime );
-
+                    p1.put("notification_service",1);
 
                     p1.save();
                 }
