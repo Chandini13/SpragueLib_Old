@@ -48,6 +48,8 @@
             android:onClick="saveChanges"
             android:text="Save"
             android:layout_marginTop="37dp"
+            android:textColor="#ff1b1211"
+
             />
 
 </LinearLayout>

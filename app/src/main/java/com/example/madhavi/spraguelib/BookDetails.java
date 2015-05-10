@@ -1,30 +1,31 @@
 package com.example.madhavi.spraguelib;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TableLayout;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 
 public class BookDetails extends ActionBarActivity {
     String book_id = null;
-
+    static String title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_details);
         Intent intent = getIntent();
         String author = intent.getStringExtra("author");
-        String title = intent.getStringExtra("title");
+        title = intent.getStringExtra("title");
         book_id = intent.getStringExtra("objectId");
         String description = intent.getStringExtra("description");
         String ISBN = intent.getStringExtra("ISBN");
@@ -53,8 +54,63 @@ public class BookDetails extends ActionBarActivity {
              e.printStackTrace();
          }
           */
-        Toast.makeText(getApplicationContext(), "Saved the changes!!",
-                Toast.LENGTH_SHORT).show();
+
+
+
+        CheckBox fav = (CheckBox) findViewById(R.id.isFavorite);
+        CheckBox placeHold = (CheckBox) findViewById(R.id.placeHold);
+
+        Button submit = (Button) findViewById(R.id.button1);
+
+
+        try {
+            if(fav.isChecked()==false && placeHold.isChecked()==false)
+
+            {
+                Toast.makeText(getApplicationContext(), "No changes to save",
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            else {
+
+                if (fav.isChecked()) {
+
+                    ParseObject p1 = new ParseObject("Table_Favorites");
+
+                    p1.put("user_name", LogActivity.loginuser);
+                    p1.put("book_name",title );
+                    p1.save();
+                }
+                if ( placeHold.isChecked()) {
+                    final ParseQuery<ParseObject> q1 = ParseQuery.getQuery("Table_Books");
+                    q1.whereEqualTo("book_name", title);
+                     ParseObject p1=q1.getFirst();
+                    p1.put("placed_hold",1);
+                    p1.save();
+                    final ParseQuery<ParseObject> q2 = ParseQuery.getQuery("Table_BookRental");
+                    q2.whereEqualTo("user_name", LogActivity.loginuser);
+                    q2.whereEqualTo("book_name", title);
+                    ParseObject p2=q2.getFirst();
+                    p2.put("placed_hold",1);
+                    p2.save();
+                    ParseObject p3=new ParseObject("Table_PlaceHold");
+                    p3.put("user_name",LogActivity.loginuser);
+                    p3.put("book_name",title);
+                    p3.put("notification_flag",1);
+                    p3.save();
+                }
+
+                fav.setChecked(false);
+                placeHold.setChecked(false);
+
+                Toast.makeText(getApplicationContext(), "Details Saved ",
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
+        catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void showData(String author, String title, String description, String ISBN, String yearOfPublication, String availability, boolean isFavorite) {

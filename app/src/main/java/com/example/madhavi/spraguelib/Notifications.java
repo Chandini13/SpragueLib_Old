@@ -159,7 +159,7 @@ public class Notifications extends ActionBarActivity {
 
                     int result = query3.find().size();
                     if (result > 0) {
-                        rows3.add("FOLLOWING SERVICE REQUESTS ARE CONFIRMED:                                    ");
+                        rows3.add("FOLLOWING SERVICE REQUESTS ARE CONFIRMED:                            ");
                     }
                     for (ParseObject objects1 : query3.find()) {
                         rows3.add(objects1.getString("service"));
