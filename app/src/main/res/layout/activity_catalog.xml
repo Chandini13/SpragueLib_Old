@@ -29,6 +29,7 @@
             android:layout_height="wrap_content"
             android:minEms="8"
             android:inputType="text"
+            android:hint="Enter the book title"
             android:id="@+id/search_catalog_input" />
     </TableRow>
 </TableLayout>
