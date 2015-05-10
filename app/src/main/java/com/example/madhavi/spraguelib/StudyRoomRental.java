@@ -15,7 +15,7 @@ import com.parse.ParseObject;
 
 
 public class StudyRoomRental extends ActionBarActivity {
-
+   
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
