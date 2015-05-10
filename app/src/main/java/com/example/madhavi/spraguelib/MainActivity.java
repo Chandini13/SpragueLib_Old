@@ -52,7 +52,7 @@ public class MainActivity extends ActionBarActivity {
      int alert1= p.getInt("renewal_alert");
      int alert2= p.getInt("recall_alert");
      int alert3= p.getInt("availability_alert");
-     int alert4= p.getInt("library_events");
+     int alert4= p.getInt("service_alert");
 
         if (alert1 == 1) {
             checkBox2.setChecked(true);
@@ -122,7 +122,7 @@ public class MainActivity extends ActionBarActivity {
                 ParseObject p1=new ParseObject("Table_Settings");
                 p1 = query1.getFirst();
                 p1.put("renewal_alert",1);
-                p1.saveInBackground();
+                p1.save();
 
             } else
             {
@@ -132,8 +132,8 @@ public class MainActivity extends ActionBarActivity {
                 ParseObject p1=new ParseObject("Table_Settings");
                 p1 = query1.getFirst();
                 p1.put("renewal_alert",0);
-                p1.saveInBackground();
-                p1.saveInBackground();
+                p1.save();
+
             }
 
             //renew alert
@@ -145,7 +145,7 @@ public class MainActivity extends ActionBarActivity {
                 ParseObject p1=new ParseObject("Table_Settings");
                 p1 = query1.getFirst();
                 p1.put("recall_alert",1);
-                p1.saveInBackground();
+                p1.save();
 
 
             } else
@@ -156,7 +156,7 @@ public class MainActivity extends ActionBarActivity {
                 ParseObject p1=new ParseObject("Table_Settings");
                 p1 = query1.getFirst();
                 p1.put("recall_alert",0);
-                p1.saveInBackground();
+                p1.save();
             }
 
             //availability alert
@@ -168,7 +168,7 @@ public class MainActivity extends ActionBarActivity {
                 ParseObject p1=new ParseObject("Table_Settings");
                 p1 = query1.getFirst();
                 p1.put("availability_alert",1);
-                p1.saveInBackground();
+                p1.save();
             } else
             {
                 ParseQuery<ParseObject> query1 = ParseQuery.getQuery("Table_Settings");
@@ -177,7 +177,7 @@ public class MainActivity extends ActionBarActivity {
                 ParseObject p1=new ParseObject("Table_Settings");
                 p1 = query1.getFirst();
                 p1.put("availability_alert",0);
-                p1.saveInBackground();
+                p1.save();
             }
 
             //library events
@@ -189,7 +189,7 @@ public class MainActivity extends ActionBarActivity {
                 ParseObject p1=new ParseObject("Table_Settings");
                 p1 = query1.getFirst();
                 p1.put("library_events",1);
-                p1.saveInBackground();
+                p1.save();
             } else
             {
                 ParseQuery<ParseObject> query1 = ParseQuery.getQuery("Table_Settings");
@@ -198,7 +198,7 @@ public class MainActivity extends ActionBarActivity {
                 ParseObject p1=new ParseObject("Table_Settings");
                 p1 = query1.getFirst();
                 p1.put("library_events",0);
-                p1.saveInBackground();
+                p1.save();
             }
 
         } catch (Exception e) {

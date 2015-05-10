@@ -95,6 +95,16 @@ tools:context="books.libraryapplication.Notifications"
 
         </ListView>
     </TableRow>
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ListView   android:id="@+id/mainListView3"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent">
+
+        </ListView>
+    </TableRow>
 </TableLayout>
 
 

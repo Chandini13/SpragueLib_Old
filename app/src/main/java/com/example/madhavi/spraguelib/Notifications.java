@@ -35,6 +35,8 @@ public class Notifications extends ActionBarActivity {
         final ArrayList<String> rows = new ArrayList<>();
         final ArrayList<String> rows1 = new ArrayList<>();
         final ArrayList<String> rows2 = new ArrayList<>();
+        final ArrayList<String> rows3 = new ArrayList<>();
+
 
         try {
 
@@ -128,7 +130,7 @@ public class Notifications extends ActionBarActivity {
             q2.whereEqualTo("notification_flag", 1);
 
             if (q2.find().size() > 0) {
-                q2.find();
+
                 int result1 = q2.find().size();
                 if (result1 > 0) {
                     rows2.add("FOLLOWING REQUESTED BOOKS ARE NOW AVAILABLE :                            ");
@@ -138,7 +140,34 @@ public class Notifications extends ActionBarActivity {
                 }
             }
 
-            if(rows.size()==0 && rows1.size()==0&&rows2.size()==0)
+
+                //checking service alert in settings
+
+                final ParseQuery<ParseObject> settings3 = ParseQuery.getQuery("Table_Settings");
+                settings3.whereEqualTo("username", userid);
+                settings3.whereEqualTo("service_alert", 1);
+
+                if (settings3.find().size() > 0) {
+
+                    //retrieving services requests
+
+                    final ParseQuery<ParseObject> query3 = ParseQuery.getQuery("Table_Service");
+
+                    query3.whereEqualTo("user_name", userid);
+
+                    query3.whereEqualTo("notification_service", 1);
+
+                    int result = query3.find().size();
+                    if (result > 0) {
+                        rows3.add("FOLLOWING SERVICE REQUESTS ARE CONFIRMED:                                    ");
+                    }
+                    for (ParseObject objects1 : query3.find()) {
+                        rows3.add(objects1.getString("service"));
+                    }
+
+                }
+
+            if(rows.size()==0 && rows1.size()==0&&rows2.size()==0&& rows3.size()==0)
             {
                 rows2.add("No Notifications Right Now !                                                  ");
             }
@@ -152,12 +181,16 @@ public class Notifications extends ActionBarActivity {
 
             final ListView bookListView2 = (ListView) findViewById(R.id.mainListView2);
 
+            final ListView bookListView3 = (ListView) findViewById(R.id.mainListView3);
+
             final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, rows);
             final ArrayAdapter<String> listAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, rows1);
             final ArrayAdapter<String> listAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, rows2);
+            final ArrayAdapter<String> listAdapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, rows3);
             bookListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
             bookListView1.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
             bookListView2.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+            bookListView3.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
             //  bookListView1.setAdapter(listAdapter);
 
             /** Defining a click event listener for the button "Delete" */
@@ -170,6 +203,8 @@ public class Notifications extends ActionBarActivity {
                     SparseBooleanArray checkedItemPositions = bookListView.getCheckedItemPositions();
                     SparseBooleanArray checkedItemPositions1 = bookListView1.getCheckedItemPositions();
                     SparseBooleanArray checkedItemPositions2 = bookListView2.getCheckedItemPositions();
+                    SparseBooleanArray checkedItemPositions3 = bookListView2.getCheckedItemPositions();
+
 
                     int itemCount = bookListView.getCount();
 
@@ -231,12 +266,35 @@ public class Notifications extends ActionBarActivity {
                             }
                         }
                     }
+
+                    int itemCount3 = bookListView3.getCount();
+
+                    for (int i3 = itemCount3 - 1; i3 >= 0; i3--) {
+                        if (checkedItemPositions3.get(i3)) {
+
+                            final ParseQuery<ParseObject> renew = ParseQuery.getQuery("Table_Service");
+                            renew.whereEqualTo("user_name", LogActivity.loginuser);
+                            renew.whereEqualTo("service", rows3.get(i3));
+                            try {
+                                for(ParseObject p1:renew.find())
+                                {
+                                    p1.put("notification_service",0);
+                                    p1.save();
+                                }
+                                listAdapter3.remove(rows3.get(i3));
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
                     checkedItemPositions.clear();
                     checkedItemPositions1.clear();
                     checkedItemPositions2.clear();
+                    checkedItemPositions3.clear();
                     listAdapter.notifyDataSetChanged();
                     listAdapter1.notifyDataSetChanged();
                     listAdapter2.notifyDataSetChanged();
+                    listAdapter3.notifyDataSetChanged();
 
                 }
             };
@@ -249,6 +307,7 @@ public class Notifications extends ActionBarActivity {
             bookListView.setAdapter(listAdapter);
             bookListView1.setAdapter(listAdapter1);
             bookListView2.setAdapter(listAdapter2);
+            bookListView3.setAdapter(listAdapter3);
 
 
 //        final ListView bookListView = (ListView) findViewById(R.id.mainListView);

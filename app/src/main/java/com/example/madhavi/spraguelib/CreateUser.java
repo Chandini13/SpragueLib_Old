@@ -75,7 +75,7 @@ public class CreateUser extends ActionBarActivity {
                     user_settings.put("renewal_alert", 1);
                     user_settings.put("recall_alert", 1);
                     user_settings.put("availability_alert", 1);
-                    user_settings.put("library_events", 1);
+                    user_settings.put("service_alert", 1);
                     user_settings.saveInBackground();
 
                     LogActivity.loginflag = 1;

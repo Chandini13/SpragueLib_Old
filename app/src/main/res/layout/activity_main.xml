@@ -80,7 +80,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/library_news_events"
+                android:text="@string/service_request_alert"
                 android:id="@+id/checkBox5"
                 android:layout_marginTop="19dp"
                 android:textSize="25dp" />
