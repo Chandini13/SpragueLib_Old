@@ -82,5 +82,17 @@
     <string name="librarydetails">Sprague Library Info</string>
     <string name="libray_hours">Library Hours</string>
     <string name="library_hours">Library Hours</string>
+    <string name="book_renewal_service">Book Renewal Service</string>
+    <string name="renew_book">Renew Book</string>
+    <string name="service_request">Service Request</string>
+    <string name="choose_date">Select Date</string>
+    <string name="select_time">Select Time</string>
+    <string name="laptop">Laptop Rental</string>
+    <string name="room_reservation">Room Reservation</string>
+    <string name="choose_service">Choose Service</string>
+    <string name="submit_request">Submit Request</string>
+    <string name="service_request_alert">Service Request Alert</string>
+    <string name="title_activity_book_details">Book Details</string>
+
 
 </resources>
