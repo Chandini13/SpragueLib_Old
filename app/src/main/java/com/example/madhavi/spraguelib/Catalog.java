@@ -25,11 +25,46 @@ import java.util.List;
 
 
 public class Catalog extends ActionBarActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalog);
+
+        TableLayout tl = (TableLayout) findViewById(R.id.tableLayout1);
+        int counter = 0;
+        TableRow headerRow = new TableRow(this);
+        headerRow.setBackgroundColor(Color.parseColor("#01DFD7"));
+        headerRow.setId(new Integer(1));
+        headerRow.setLayoutParams(new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT));
+
+        // Title column
+        TextView titleColumn = new TextView(this);
+        titleColumn.setId(10 * counter + 1);
+        titleColumn.setTypeface(null, Typeface.BOLD);
+        titleColumn.setWidth(350);
+        titleColumn.setTextSize(15);
+        titleColumn.setText("Title");
+        headerRow.addView(titleColumn);
+
+        // Author column
+        TextView authorColumn = new TextView(this);
+        authorColumn.setTextSize(15);
+        authorColumn.setWidth(10);
+        authorColumn.setTypeface(null, Typeface.BOLD);
+        authorColumn.setId(10 * counter + 2);
+        authorColumn.setText("Author");
+        headerRow.addView(authorColumn);
+
+        // Availability column
+        TextView availabilityColumn = new TextView(this);
+        availabilityColumn.setTextSize(15);
+        availabilityColumn.setWidth(200);
+        availabilityColumn.setTypeface(null, Typeface.BOLD);
+        availabilityColumn.setId(10 * counter + 3);
+        availabilityColumn.setText("Available");
+        headerRow.addView(availabilityColumn);
+
+        tl.addView(headerRow, new TableLayout.LayoutParams());
     }
 
 
@@ -72,11 +107,13 @@ public class Catalog extends ActionBarActivity {
 
     public void searchCatalog(View view) {
         for(int i = 0;i<((TableLayout) findViewById(R.id.tableLayout1)).getChildCount();i++) {
-            if(i == 0) {
-                continue;
+            System.out.println("ID = "+((TableRow)((TableLayout) findViewById(R.id.tableLayout1)).getChildAt(i)).getId());
+            System.out.println("ID2= " + R.id.searchBarRecord);
+            if(((TableRow)((TableLayout) findViewById(R.id.tableLayout1)).getChildAt(i)).getId() != new Integer(1) &&
+                    ((TableRow)((TableLayout) findViewById(R.id.tableLayout1)).getChildAt(i)).getId() != R.id.searchBarRecord) {
+                System.out.println("Deleting record with id : " + ((TableRow)((TableLayout) findViewById(R.id.tableLayout1)).getChildAt(i)).getId());
+               ((TableRow)((TableLayout) findViewById(R.id.tableLayout1)).getChildAt(i)).removeAllViewsInLayout();
             }
-            System.out.println("Deleting record with id : " + ((TableRow)((TableLayout) findViewById(R.id.tableLayout1)).getChildAt(i)).getId());
-           ((TableRow)((TableLayout) findViewById(R.id.tableLayout1)).getChildAt(i)).removeAllViewsInLayout();
         }
         List<String> booksMatched = new ArrayList<>();
         EditText userInput = ((EditText)findViewById(R.id.search_catalog_input));
@@ -88,7 +125,7 @@ public class Catalog extends ActionBarActivity {
             try {
 
                 ParseQuery<ParseObject> query1 = ParseQuery.getQuery("Table_Books");
-                query1.whereContains("book_name", userInput.getText().toString());
+                query1.whereContains("book_name_lower", userInput.getText().toString().toLowerCase());
 
                // ParseObject p1=new ParseObject("Table_Books");
                 //int result = query1.find().size();
@@ -108,7 +145,7 @@ public class Catalog extends ActionBarActivity {
                     bookRecord.append(DELIMITER);
                     bookRecord.append(record.getString("ISBN"));
                     bookRecord.append(DELIMITER);
-                    bookRecord.append(record.getString("year_of_publication"));
+                    bookRecord.append(record.getNumber("year_of_publication"));
                     booksMatched.add(bookRecord.toString());
                     bookRecord = new StringBuilder();
                 }
@@ -135,46 +172,18 @@ public class Catalog extends ActionBarActivity {
 
         System.out.println("Inside showBooks");
         TableLayout tl = (TableLayout) findViewById(R.id.tableLayout1);
-        int counter = 0;
-        TableRow headerRow = new TableRow(this);
-        headerRow.setBackgroundColor(Color.parseColor("#01DFD7"));
-        headerRow.setId(new Integer(1));
-        headerRow.setLayoutParams(new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT));
-
-        // Title column
-        TextView titleColumn = new TextView(this);
-        titleColumn.setId(10 * counter + 1);
-        titleColumn.setTypeface(null, Typeface.BOLD);
-        titleColumn.setTextSize(15);
-        titleColumn.setText("Title");
-        headerRow.addView(titleColumn);
-
-        // Author column
-        TextView authorColumn = new TextView(this);
-        authorColumn.setTextSize(15);
-        authorColumn.setTypeface(null, Typeface.BOLD);
-        authorColumn.setId(10 * counter + 2);
-        authorColumn.setText("Author");
-        headerRow.addView(authorColumn);
-
-        // Availability column
-        TextView availabilityColumn = new TextView(this);
-        availabilityColumn.setTextSize(15);
-        availabilityColumn.setTypeface(null, Typeface.BOLD);
-        availabilityColumn.setId(10 * counter + 3);
-        availabilityColumn.setText("Availability");
-        headerRow.addView(availabilityColumn);
-
-        tl.addView(headerRow, new TableLayout.LayoutParams());
+        int counter = 100;
         int dataRecordCounter = 0;
         for (String book : booksMatched) {
             dataRecordCounter++;
             final String[] tokens = book.split(DatabaseManager.DELIMITER);
             TableRow tr = new TableRow(this);
+            tr.setPadding(0,0,0,20);
             tr.setId(++counter);
             tr.setLayoutParams(new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT));
             // Title column
             TextView title = new TextView(this);
+            title.setTextSize(15);
             title.setId(10 * counter + 1);
             title.setText(tokens[2]);
             tr.addView(title);
@@ -183,12 +192,14 @@ public class Catalog extends ActionBarActivity {
             TextView author = new TextView(this);
             author.setId(10 * counter + 2);
             author.setText(tokens[1]);
+            author.setTextSize(15);
             tr.addView(author);
 
             // Availability column
             TextView availability = new TextView(this);
             availability.setId(10 * counter + 3);
-            availability.setText(tokens[3]);
+            availability.setTextSize(15);
+            availability.setText(tokens[3].equalsIgnoreCase("0")?"NO":"YES");
             tr.addView(availability);
 
             tr.setOnClickListener(new View.OnClickListener() {
@@ -208,8 +219,9 @@ public class Catalog extends ActionBarActivity {
             if(dataRecordCounter%2 == 0) {
                 tr.setBackgroundColor(Color.parseColor("#E0ECF8"));
             }
-            tr.setMinimumHeight(20);
-            tl.addView(tr, new TableLayout.LayoutParams());
+            //tr.setMinimumHeight(20);
+            tl.addView(tr, new TableLayout.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT));
+            //tl.addView(tr, new TableLayout.LayoutParams());
         }
     }
 }

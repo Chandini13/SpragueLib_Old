@@ -3,6 +3,7 @@ package com.example.madhavi.spraguelib;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,15 +30,24 @@ public class BookDetails extends ActionBarActivity {
         book_id = intent.getStringExtra("objectId");
         String description = intent.getStringExtra("description");
         String ISBN = intent.getStringExtra("ISBN");
-        String availability = intent.getStringExtra("availability");
+        boolean isPlaceHold = false;
+        boolean isFav = false;
         String yearOfPublication = intent.getStringExtra("yearOfPublication");
-        showData(author, title, description, ISBN, yearOfPublication, availability, true);
-      //  ParseQuery<ParseObject> query = Catalog.fetchDataFromParse("table_books", "objectId", book_id, "equalTo");
-      //  try {
-       //     System.out.println("************************ book_id = " + book_id + " ***** " + query.find().size());
-       // } catch (Exception e) {
-       //     e.printStackTrace();
-       // }
+        ParseQuery<ParseObject> query1 = Catalog.fetchDataFromParse("Table_Favorites", "book_name", title, "equalTo");
+        query1.whereEqualTo("user_name", LogActivity.loginuser);
+        ParseQuery<ParseObject> query2 = Catalog.fetchDataFromParse("Table_PlaceHold", "book_name", title, "equalTo");
+        query2.whereEqualTo("user_name", LogActivity.loginuser);
+        try {
+            for (ParseObject record : query1.find()) {
+                isFav = true;
+            }
+            for (ParseObject record : query2.find()) {
+                isPlaceHold = true;
+            }
+         } catch (Exception e) {
+            e.printStackTrace();
+        }
+        showData(author, title, description, ISBN, yearOfPublication, isPlaceHold, isFav);
     }
 
     public void enableButton(View view){
@@ -116,13 +126,15 @@ else {
         }
     }
 
-    private void showData(String author, String title, String description, String ISBN, String yearOfPublication, String availability, boolean isFavorite) {
+    private void showData(String author, String title, String description, String ISBN, String yearOfPublication, boolean isPlaceHold, boolean isFavorite) {
         System.out.println("Inside show Data with author : " + author);
         ((TextView) findViewById(R.id.title)).setText(title);
         ((TextView) findViewById(R.id.description)).setText(description);
         ((TextView) findViewById(R.id.author)).setText(author);
         ((TextView) findViewById(R.id.ISBN)).setText(ISBN);
         ((TextView) findViewById(R.id.yearOfPublication)).setText(yearOfPublication);
+        ((CheckBox) findViewById(R.id.isFavorite)).setChecked(isFavorite);
+        ((CheckBox) findViewById(R.id.placeHold)).setChecked(isPlaceHold);
 
     }
 
