@@ -93,6 +93,8 @@
     <string name="submit_request">Submit Request</string>
     <string name="service_request_alert">Service Request Alert</string>
     <string name="title_activity_book_details">Book Details</string>
+    <string name="delete">Delete</string>
+    <string name="remove">Remove from Collection</string>
 
 
 </resources>

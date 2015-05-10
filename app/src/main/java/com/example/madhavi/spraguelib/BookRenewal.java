@@ -56,7 +56,10 @@ public class BookRenewal extends ActionBarActivity {
                     rows.add(objects1.getString("book_name"));
                 }
 
-
+            if(rows.size()==0 )
+            {
+                rows.add("No books to renew !                                                            ");
+            }
             Button btnRen = (Button) findViewById(R.id.btnRen);
 
 
