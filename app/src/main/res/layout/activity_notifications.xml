@@ -11,7 +11,7 @@ tools:context="books.libraryapplication.Notifications"
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#ffdadada">
+        android:background="#ff29729c">
 
         <ImageView
             android:layout_width="50dp"
@@ -47,7 +47,7 @@ tools:context="books.libraryapplication.Notifications"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="21dp"
         android:theme="@android:style/Animation.Translucent"
-        android:background="@android:drawable/alert_light_frame" />
+        android:background="#ffbcc3ff" />
 
 
 
@@ -57,7 +57,7 @@ tools:context="books.libraryapplication.Notifications"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_weight="1"
-    android:background="@drawable/bkgnd">
+    android:background="@drawable/blueb">
 
 
     <TableRow

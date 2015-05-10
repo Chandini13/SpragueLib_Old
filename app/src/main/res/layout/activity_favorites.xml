@@ -11,7 +11,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@drawable/bkgnd">
+        android:background="@drawable/blue">
 
 
         <TableRow
@@ -20,35 +20,40 @@
 
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#ffdadada"
+                android:layout_height="fill_parent"
+                android:background="#ff4078b6"
                 android:layout_column="0"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="50dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/book_renewal_service"
+                    android:text="@string/my_collection"
                     android:id="@+id/textView9"
-                    android:textSize="39dp"
+                    android:textSize="35dp"
                     android:theme="@android:style/MediaButton"
 
+                    android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginStart="67dp"
+                    android:textStyle="italic" />
 
                 <Button
                     android:id="@+id/btnRem"
                     android:layout_width="118dp"
                     android:layout_height="wrap_content"
 
-                    android:text="@string/remove"
+                    android:text="@string/delete"
 
                     android:layout_gravity="right"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="21dp"
                     android:theme="@android:style/Animation.Translucent"
-                    android:background="@android:drawable/alert_light_frame" />
+                    android:background="#ff91c5ff"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true" />
 
 
 
@@ -66,7 +71,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
 
-                >
+                android:layout_marginTop="21dp">
             </ListView>
         </TableRow>
 

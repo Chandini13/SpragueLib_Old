@@ -169,7 +169,7 @@ public class Notifications extends ActionBarActivity {
 
             if(rows.size()==0 && rows1.size()==0&&rows2.size()==0&& rows3.size()==0)
             {
-                rows2.add("No Notifications Right Now !                                                  ");
+                rows2.add("No Notifications Right Now !                                                                                ");
             }
             /** Reference to the delete button of the layout main.xml */
             Button btnDel = (Button) findViewById(R.id.btnDel);
@@ -203,7 +203,7 @@ public class Notifications extends ActionBarActivity {
                     SparseBooleanArray checkedItemPositions = bookListView.getCheckedItemPositions();
                     SparseBooleanArray checkedItemPositions1 = bookListView1.getCheckedItemPositions();
                     SparseBooleanArray checkedItemPositions2 = bookListView2.getCheckedItemPositions();
-                    SparseBooleanArray checkedItemPositions3 = bookListView2.getCheckedItemPositions();
+                    SparseBooleanArray checkedItemPositions3 = bookListView3.getCheckedItemPositions();
 
 
                     int itemCount = bookListView.getCount();

@@ -12,7 +12,7 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        android:background="@drawable/lightimage">
+        android:background="@drawable/blue">
 
         <TextView
             android:id="@+id/textView1"
@@ -24,7 +24,9 @@
             android:text="@string/service_request"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#ff1c101c"
-            android:layout_marginBottom="50dp" />
+            android:layout_marginBottom="50dp"
+            android:textSize="29dp"
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/textView2"
@@ -33,9 +35,10 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/textView1"
             android:layout_marginTop="80dp"
-            android:text="@string/choose_date"
+            android:text="@string/enter_date"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#ff2c221f" />
+            android:textColor="#ff2c221f"
+            android:textSize="19dp" />
 
         <EditText
             android:id="@+id/editText1"
@@ -48,7 +51,7 @@
             android:textColor="#ff0a0207"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="39dp">
+            android:layout_marginTop="50dp">
 
             <requestFocus />
         </EditText>
@@ -57,12 +60,14 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView2"
-            android:layout_below="@+id/textView2"
-            android:layout_marginTop="38dp"
-            android:text="@string/select_time"
+            android:layout_marginTop="34dp"
+            android:text="@string/entertime"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#ff200f1c" />
+            android:textColor="#ff200f1c"
+            android:layout_below="@+id/textView2"
+            android:layout_toLeftOf="@+id/editText1"
+            android:layout_toStartOf="@+id/editText1"
+            android:textSize="19dp" />
 
         <EditText
             android:id="@+id/editText2"
@@ -74,6 +79,7 @@
             android:layout_alignBottom="@+id/textView3"
             android:layout_alignRight="@+id/editText1"
             android:layout_alignEnd="@+id/editText1"
+            android:layout_toEndOf="@+id/textView3"
             android:layout_alignLeft="@+id/editText1"
             android:layout_alignStart="@+id/editText1" />
 
@@ -83,30 +89,30 @@
             android:text="@string/choose_service"
             android:id="@+id/textView10"
 
-            android:textSize="17dp"
+            android:textSize="19dp"
             android:textColor="#ff1f1b0f"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/textView1"
-            android:layout_alignBottom="@+id/checkBox6" />
+            android:layout_alignLeft="@+id/textView3"
+            android:layout_alignStart="@+id/textView3" />
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/laptop"
             android:id="@+id/checkBox6"
+            android:textSize="19dp"
             android:layout_below="@+id/textView1"
-            android:layout_alignLeft="@+id/editText1"
-            android:layout_alignStart="@+id/editText1" />
+            android:layout_centerHorizontal="true" />
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/room_reservation"
             android:id="@+id/checkBox7"
-            android:layout_below="@+id/textView1"
-            android:layout_toRightOf="@+id/checkBox6"
-            android:layout_toEndOf="@+id/checkBox6" />
+            android:textSize="19dp"
+            android:layout_alignTop="@+id/checkBox6"
+            android:layout_alignRight="@+id/editText1"
+            android:layout_alignEnd="@+id/editText1" />
 
         <Button
             android:id="@+id/button1"
@@ -118,12 +124,16 @@
             android:background="#ffffbd5e"
             android:layout_marginTop="43dp"
             android:layout_below="@+id/editText2"
-            android:layout_toRightOf="@+id/textView10"
             android:onClick="request"
             android:clickable="true"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:longClickable="true" />
+            android:longClickable="false"
+            android:layout_alignLeft="@+id/editText2"
+            android:layout_alignStart="@+id/editText2"
+            android:textSize="19sp"
+            android:enabled="false"
+            android:textColor="#ff16248a" />
 
 
         <!--  <TextView

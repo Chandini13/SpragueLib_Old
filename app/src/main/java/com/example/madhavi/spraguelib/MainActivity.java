@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -188,7 +189,7 @@ public class MainActivity extends ActionBarActivity {
 
                 ParseObject p1=new ParseObject("Table_Settings");
                 p1 = query1.getFirst();
-                p1.put("library_events",1);
+                p1.put("service_alert",1);
                 p1.save();
             } else
             {
@@ -197,9 +198,12 @@ public class MainActivity extends ActionBarActivity {
 
                 ParseObject p1=new ParseObject("Table_Settings");
                 p1 = query1.getFirst();
-                p1.put("library_events",0);
+                p1.put("service_alert",0);
                 p1.save();
             }
+
+            Toast.makeText(getApplicationContext(), "Settings Saved ",
+                    Toast.LENGTH_SHORT).show();
 
         } catch (Exception e) {
             Log.e("error", e.toString());

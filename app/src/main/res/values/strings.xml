@@ -95,6 +95,12 @@
     <string name="title_activity_book_details">Book Details</string>
     <string name="delete">Delete</string>
     <string name="remove">Remove from Collection</string>
+    <string name="my_collection">My Favorites</string>
+    <string name="app_login">Login to Sprague Library</string>
+    <string name="sprague_library">Sprague Library</string>
+    <string name="enter_time">Enter Time</string>
+    <string name="entertime">Enter time(HH:MM)</string>
+    <string name="enter_date">Enter Date(mm-dd-yy)</string>
 
 
 </resources>

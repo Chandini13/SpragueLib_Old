@@ -4,7 +4,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/tableLayout1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:shrinkColumns="0,1"
+    android:stretchColumns="1,2"
+    android:background="@drawable/bluebb">
 
     <TableRow
         android:layout_width="fill_parent"
