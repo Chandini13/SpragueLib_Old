@@ -5,7 +5,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -56,7 +55,7 @@ public class StudyRoomRental extends ActionBarActivity {
         CheckBox laptop = (CheckBox) findViewById(R.id.checkBox6);
         CheckBox room = (CheckBox) findViewById(R.id.checkBox7);
 
-        Button submit = (Button) findViewById(R.id.button1);
+       // Button submit = (Button) findViewById(R.id.button1);
 
         String requestdate = request_date.getText().toString();
         String requesttime = request_time.getText().toString();
