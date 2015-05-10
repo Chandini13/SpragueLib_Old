@@ -79,7 +79,7 @@ public class StudyRoomRental extends ActionBarActivity {
 
                     p1.put("user_name", LogActivity.loginuser);
                     p1.put("service", "Laptop Reserved on "+ requestdate + " at " + requesttime);
-
+                    p1.put("notification_service",1);
 
                     p1.save();
                 }
@@ -97,8 +97,7 @@ public class StudyRoomRental extends ActionBarActivity {
                 laptop.setChecked(false);
                 room.setChecked(false);
 
-                Toast.makeText(getApplicationContext(), "Request submitted ",
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Request submitted ",Toast.LENGTH_SHORT).show();
             }
         }
         catch (ParseException e) {

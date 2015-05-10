@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -25,6 +24,8 @@ import java.util.List;
 
 
 public class Catalog extends ActionBarActivity {
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -195,6 +196,7 @@ public class Catalog extends ActionBarActivity {
                     bookRecord.append(record.getString("Author"));
                     bookRecord.append(DELIMITER);
                     bookRecord.append(record.getString("book_name"));
+
                     bookRecord.append(DELIMITER);
                     bookRecord.append(record.getNumber("Availability"));
                     bookRecord.append(DELIMITER);
@@ -265,6 +267,7 @@ public class Catalog extends ActionBarActivity {
                     Intent intent=new Intent(v.getContext(), BookDetails.class);
                     intent.putExtra("objectId",tokens[0]);
                     intent.putExtra("title",tokens[2]);
+
                     intent.putExtra("author",tokens[1]);
                     intent.putExtra("availability",tokens[3]);
                     intent.putExtra("description",tokens[4]);
