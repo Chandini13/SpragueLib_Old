@@ -92,5 +92,7 @@
     <string name="choose_service">Choose Service</string>
     <string name="submit_request">Submit Request</string>
     <string name="service_request_alert">Service Request Alert</string>
+    <string name="title_activity_book_details">Book Details</string>
+
 
 </resources>

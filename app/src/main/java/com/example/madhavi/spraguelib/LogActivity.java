@@ -95,8 +95,8 @@ public class LogActivity extends ActionBarActivity {
         password = (EditText) findViewById(R.id.editText2);
 
         login = (Button) findViewById(R.id.button1);
-        loginuser = username.getText().toString();
-        loginpassword = password.getText().toString();
+        loginuser = "nivitha";//username.getText().toString();
+        loginpassword = "nivitha";//password.getText().toString();
 
 
         ParseUser.logInInBackground(loginuser, loginpassword, new LogInCallback() {
