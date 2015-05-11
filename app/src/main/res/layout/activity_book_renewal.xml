@@ -3,7 +3,6 @@
     android:layout_height="match_parent"
     android:layout_weight="1"
     android:orientation="vertical"
-    android:background="@drawable/bkgnd"
     tools:context="books.libraryapplication.BookRenewal"
     >
 
@@ -11,7 +10,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@drawable/bkgnd">
+        android:background="@drawable/bluebb">
 
 
         <TableRow
@@ -22,7 +21,6 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#ff195e87"
                 android:layout_column="0"
                 android:layout_marginTop="15dp">
 
@@ -72,7 +70,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
 
-                android:background="@drawable/blueb">
+                >
             </ListView>
         </TableRow>
 

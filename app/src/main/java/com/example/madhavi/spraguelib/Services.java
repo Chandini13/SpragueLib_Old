@@ -1,5 +1,6 @@
 package com.example.madhavi.spraguelib;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -31,27 +32,18 @@ public class Services extends ActionBarActivity {
 
     }
 
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
+    public void rental_service(View view)
 
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.radioButton:
-                if (checked)
-                    // laptopRental is selected
-                    break;
-            case R.id.radioButton2:
-                if (checked)
-                    // StudyRoomRental is selected
-                    break;
-            case R.id.radioButton3:
-                if (checked)
-                    // Book Renewal is selected
-                    break;
-        }
+    {
+        Intent i = new Intent(Services.this.getApplicationContext(), StudyRoomRental.class);
+        startActivity(i);
     }
+    public void book_renew(View view)
 
+    {
+        Intent i = new Intent(Services.this.getApplicationContext(), BookRenewal.class);
+        startActivity(i);
+    }
 
 
     @Override
