@@ -101,7 +101,7 @@
     <string name="enter_time">Enter Time</string>
     <string name="entertime">Enter time(HH:MM)</string>
     <string name="enter_date">Enter Date(mm-dd-yy)</string>
-    <string name="library_info"><![CDATA[Library Information   Hours & Contacts]]></string>
+    <string name="library_info"><![CDATA[LIBRARY INFORMATION :  HOURS & CONTACTS]]></string>
     <string name="NOTIFICATIONS">NOTIFICATIONS</string>
     <string name="SERVICES">SERVICES</string>
     <string name="SETTINGS">SETTINGS</string>
