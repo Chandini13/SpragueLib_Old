@@ -38,8 +38,6 @@ public class BookRenewal extends ActionBarActivity {
         try {
 
 
-
-
                 //retrieving books to be renewed
 
                 final ParseQuery<ParseObject> query1 = ParseQuery.getQuery("Table_BookRental");
@@ -121,7 +119,8 @@ public class BookRenewal extends ActionBarActivity {
                     checkedItemPositions.clear();
 
                     listAdapter.notifyDataSetChanged();
-
+                    Toast.makeText(getApplicationContext(), "Book Renewed Successfully",
+                            Toast.LENGTH_SHORT).show();
                 }
             };
             btnRen.setOnClickListener(listenerDel);
@@ -130,8 +129,7 @@ public class BookRenewal extends ActionBarActivity {
             bookListView.setAdapter(listAdapter);
 
 
-            Toast.makeText(getApplicationContext(), "Book Renewed Successfully",
-                    Toast.LENGTH_SHORT).show();
+
         }
             catch(ParseException e){
                 e.printStackTrace();
