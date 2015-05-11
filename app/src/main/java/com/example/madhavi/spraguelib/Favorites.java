@@ -170,7 +170,19 @@ public class Favorites extends ActionBarActivity {
                 startActivity(i);
             }
             return true;
-        }  else if (id == R.id.library_info) {
+        }  else if (id == R.id.favorites) {
+            if(LogActivity.loginflag==0)
+            {
+                MyDialogFragment dialog;
+                dialog = new MyDialogFragment();
+                dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+            }
+            else {
+                Intent i = new Intent(Favorites.this.getApplicationContext(), Favorites.class);
+                startActivity(i);
+            }
+            return true;
+        }else if (id == R.id.library_info) {
             Intent i = new Intent(Favorites.this.getApplicationContext(), LibraryNews.class);
             startActivity(i);
             return true;
