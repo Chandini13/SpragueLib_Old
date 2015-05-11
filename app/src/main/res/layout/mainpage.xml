@@ -32,7 +32,7 @@
                 android:textSize="29dp"
                 android:layout_column="17"
                 android:gravity="center"
-                android:layout_marginLeft="51dp" />
+                android:layout_marginLeft="86dp" />
         </TableRow>
 
         <Button
@@ -110,7 +110,8 @@
                 android:layout_centerHorizontal="true"
                 android:textSize="29dp"
                 android:layout_column="17"
-                android:gravity="center" />
+                android:gravity="center"
+                android:layout_marginRight="51dp" />
         </TableRow>
 
         <TableRow
