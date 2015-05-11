@@ -2,6 +2,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.madhavi.spraguelib.StudyRoomRental">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/create_datab"
+        android:title="HOME"
+        android:icon="@drawable/ic_launcher" />
+    <item android:id="@+id/catalog"
+        android:title="Catalog"
+        android:icon="@drawable/ic_launcher" />
+    <item android:id="@+id/notifications"
+        android:title="Notifications"
+        android:icon="@drawable/ic_launcher" />
+    <item android:id="@+id/favorites"
+        android:title="Favorites"
+        android:icon="@drawable/ic_launcher" />
+    <item android:id="@+id/services"
+        android:title="Services"
+        android:icon="@drawable/ic_launcher" />
+    <item android:id="@+id/lib_info"
+        android:title="Library info"
+        android:icon="@drawable/ic_launcher" />
+    <item android:id="@+id/help"
+        android:title="Settings"
+        android:icon="@drawable/ic_launcher" />
 </menu>
