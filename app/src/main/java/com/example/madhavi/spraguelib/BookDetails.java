@@ -3,7 +3,6 @@ package com.example.madhavi.spraguelib;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -84,42 +83,80 @@ else {
                 {
                     Toast.makeText(getApplicationContext(), "No changes to save",
                             Toast.LENGTH_SHORT).show();
-                } else {
+                }
 
-                    if (fav.isChecked()) {
+                else
 
-                        ParseObject p1 = new ParseObject("Table_Favorites");
+                {
 
-                        p1.put("user_name", LogActivity.loginuser);
-                        p1.put("book_name", title);
-                        p1.put("display_fav",1);
-                        p1.save();
+                    if (fav.isChecked())
+                    {
+
+                        final ParseQuery<ParseObject> q1 = ParseQuery.getQuery("Table_Favorites");
+                        q1.whereEqualTo("user_name", LogActivity.loginuser);
+                        q1.whereEqualTo("book_name", title);
+
+                        int result = q1.find().size();
+                        if (result > 0) {
+
+                            Toast.makeText(getApplicationContext(), "Book already marked as favorite",
+                                    Toast.LENGTH_SHORT).show();
+
+                        }
+
+                       else {
+
+
+                            ParseObject p1 = new ParseObject("Table_Favorites");
+
+                            p1.put("user_name", LogActivity.loginuser);
+                            p1.put("book_name", title);
+                            p1.put("display_fav", 1);
+                            p1.save();
+                            Toast.makeText(getApplicationContext(), "Set as Favorite ", Toast.LENGTH_SHORT).show();
+                        }
                     }
                     if (placeHold.isChecked()) {
+
                         final ParseQuery<ParseObject> q1 = ParseQuery.getQuery("Table_Books");
                         q1.whereEqualTo("book_name", title);
                         ParseObject p1 = q1.getFirst();
-                        p1.put("placed_hold", 1);
-                        p1.save();
-                        final ParseQuery<ParseObject> q2 = ParseQuery.getQuery("Table_BookRental");
-                        q2.whereEqualTo("user_name", LogActivity.loginuser);
-                        q2.whereEqualTo("book_name", title);
-                        ParseObject p2 = q2.getFirst();
-                        p2.put("placed_hold", 1);
-                        p2.save();
-                        ParseObject p3 = new ParseObject("Table_PlaceHold");
-                        p3.put("user_name", LogActivity.loginuser);
-                        p3.put("book_name", title);
-                        p3.put("notification_flag", 1);
-                        p3.save();
+                        int result = p1.getInt("Availability");
+                        if (result == 1) {
+
+                            Toast.makeText(getApplicationContext(), "Book Available at Library! No need to place Hold",
+                                    Toast.LENGTH_SHORT).show();
+
+                        }
+
+                        else {
+                            final ParseQuery<ParseObject> s1 = ParseQuery.getQuery("Table_Books");
+                            s1.whereEqualTo("book_name", title);
+                            ParseObject t1 = s1.getFirst();
+                            t1.put("placed_hold", 1);
+                            t1.save();
+                            final ParseQuery<ParseObject> q2 = ParseQuery.getQuery("Table_BookRental");
+                            q2.whereEqualTo("user_name", LogActivity.loginuser);
+                            q2.whereEqualTo("book_name", title);
+                            ParseObject p2 = q2.getFirst();
+                            p2.put("placed_hold", 1);
+                            p2.save();
+                            ParseObject p3 = new ParseObject("Table_PlaceHold");
+                            p3.put("user_name", LogActivity.loginuser);
+                            p3.put("book_name", title);
+                            p3.put("notification_flag", 1);
+                            p3.save();
+                            Toast.makeText(getApplicationContext(), "Book set on Hold ! ", Toast.LENGTH_SHORT).show();
+                        }
                     }
 
-                    fav.setChecked(false);
-                    placeHold.setChecked(false);
+                        fav.setChecked(false);
+                        placeHold.setChecked(false);
 
-                    Toast.makeText(getApplicationContext(), "Details Saved ",
-                            Toast.LENGTH_SHORT).show();
-                }
+
+
+                    }
+
             } catch (ParseException e) {
                 e.printStackTrace();
             }
