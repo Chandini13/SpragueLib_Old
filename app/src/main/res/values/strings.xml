@@ -110,6 +110,8 @@
     <string name="CATALOG_SEARCH">CATALOG SEARCH</string>
     <string name="welcome_to">WELCOME TO  </string>
     <string name="sprague_libra">SPRAGUE LIBRARY</string>
+    <string name="laptoprental"><![CDATA[Laptop Rental & Room Reservation]]></string>
+    <string name="servicespage">LIBRARY SERVICES</string>
 
 
 </resources>
