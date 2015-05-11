@@ -1,5 +1,6 @@
 package com.example.madhavi.spraguelib;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -31,7 +32,6 @@ public class StudyRoomRental extends ActionBarActivity {
         getMenuInflater().inflate(R.menu.menu_study_room_rental, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -40,12 +40,74 @@ public class StudyRoomRental extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.catalog) {
+            Intent i = new Intent(StudyRoomRental.this.getApplicationContext(), Catalog.class);
+            startActivity(i);
+            return true;
+        } else if (id == R.id.services) {
+            if(LogActivity.loginflag==0)
+            {
+                MyDialogFragment dialog;
+                dialog = new MyDialogFragment();
+                dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+            }
+            else {
+                Intent i = new Intent(StudyRoomRental.this.getApplicationContext(), Services.class);
+                startActivity(i);
+            }
+            return true;
+        }  else if (id == R.id.help) {
+            if(LogActivity.loginflag==0)
+            {
+                MyDialogFragment dialog;
+                dialog = new MyDialogFragment();
+                dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+            }
+
+            else {
+                Intent i = new Intent(StudyRoomRental.this.getApplicationContext(), MainActivity.class);
+                startActivity(i);
+            }
+            return true;
+        }  else if (id == R.id.notifications) {
+            if(LogActivity.loginflag==0)
+            {
+                MyDialogFragment dialog;
+
+
+                dialog = new MyDialogFragment();
+                dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+            }
+            else {
+                Intent i = new Intent(StudyRoomRental.this.getApplicationContext(), Notifications.class);
+                startActivity(i);
+            }
+            return true;
+        }  else if (id == R.id.library_info) {
+            Intent i = new Intent(StudyRoomRental.this.getApplicationContext(), LibraryNews.class);
+            startActivity(i);
+            return true;
+        }   else if (id == R.id.favorites) {
+            if(LogActivity.loginflag==0)
+            {
+                MyDialogFragment dialog;
+                dialog = new MyDialogFragment();
+                dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+            }
+            else {
+                Intent i = new Intent(StudyRoomRental.this.getApplicationContext(), Favorites.class);
+                startActivity(i);
+            }
+            return true;
+        }        if (id == R.id.create_datab) {
+            Intent i = new Intent(StudyRoomRental.this.getApplicationContext(), MainPage.class);
+            startActivity(i);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 
     public void request(View view)
     {

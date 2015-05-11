@@ -61,10 +61,70 @@ public class Services extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.catalog) {
+            Intent i = new Intent(Services.this.getApplicationContext(), Catalog.class);
+            startActivity(i);
+            return true;
+        } else if (id == R.id.services) {
+            if(LogActivity.loginflag==0)
+            {
+                MyDialogFragment dialog;
+                dialog = new MyDialogFragment();
+                dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+            }
+            else {
+                Intent i = new Intent(Services.this.getApplicationContext(), Services.class);
+                startActivity(i);
+            }
+            return true;
+        }  else if (id == R.id.help) {
+            if(LogActivity.loginflag==0)
+            {
+                MyDialogFragment dialog;
+                dialog = new MyDialogFragment();
+                dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+            }
+
+            else {
+                Intent i = new Intent(Services.this.getApplicationContext(), MainActivity.class);
+                startActivity(i);
+            }
+            return true;
+        }  else if (id == R.id.notifications) {
+            if(LogActivity.loginflag==0)
+            {
+                MyDialogFragment dialog;
+                dialog = new MyDialogFragment();
+                dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+            }
+            else {
+                Intent i = new Intent(Services.this.getApplicationContext(), Notifications.class);
+                startActivity(i);
+            }
+            return true;
+        }  else if (id == R.id.library_info) {
+            Intent i = new Intent(Services.this.getApplicationContext(), LibraryNews.class);
+            startActivity(i);
+            return true;
+        }   else if (id == R.id.favorites) {
+            if(LogActivity.loginflag==0)
+            {
+                MyDialogFragment dialog;
+                dialog = new MyDialogFragment();
+                dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+            }
+            else {
+                Intent i = new Intent(Services.this.getApplicationContext(), Favorites.class);
+                startActivity(i);
+            }
+            return true;
+        }        if (id == R.id.create_datab) {
+            Intent i = new Intent(Services.this.getApplicationContext(), MainPage.class);
+            startActivity(i);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 }
