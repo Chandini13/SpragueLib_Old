@@ -181,7 +181,6 @@ else {
         getMenuInflater().inflate(R.menu.menu_book_details, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -190,10 +189,69 @@ else {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.catalog) {
+            Intent i = new Intent(BookDetails.this.getApplicationContext(), Catalog.class);
+            startActivity(i);
+            return true;
+        } else if (id == R.id.services) {
+            if(LogActivity.loginflag==0)
+            {
+                MyDialogFragment dialog;
+                dialog = new MyDialogFragment();
+                dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+            }
+            else {
+                Intent i = new Intent(BookDetails.this.getApplicationContext(), Services.class);
+                startActivity(i);
+            }
+            return true;
+        }  else if (id == R.id.help) {
+            if(LogActivity.loginflag==0)
+            {
+                MyDialogFragment dialog;
+                dialog = new MyDialogFragment();
+                dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+            }
+            else {
+                Intent i = new Intent(BookDetails.this.getApplicationContext(), MainActivity.class);
+                startActivity(i);
+            }
+            return true;
+        }  else if (id == R.id.notifications) {
+            if(LogActivity.loginflag==0)
+            {
+                MyDialogFragment dialog;
+                dialog = new MyDialogFragment();
+                dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+            }
+            else {
+                Intent i = new Intent(BookDetails.this.getApplicationContext(), Notifications.class);
+                startActivity(i);
+            }
+            return true;
+        }  else if (id == R.id.library_info) {
+            Intent i = new Intent(BookDetails.this.getApplicationContext(), LibraryNews.class);
+            startActivity(i);
+            return true;
+        }   else if (id == R.id.favorites) {
+            if(LogActivity.loginflag==0)
+            {
+                MyDialogFragment dialog;
+                dialog = new MyDialogFragment();
+                dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+            }
+            else {
+                Intent i = new Intent(BookDetails.this.getApplicationContext(), Favorites.class);
+                startActivity(i);
+            }
+            return true;
+        }        if (id == R.id.create_datab) {
+            Intent i = new Intent(BookDetails.this.getApplicationContext(), MainPage.class);
+            startActivity(i);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 }
