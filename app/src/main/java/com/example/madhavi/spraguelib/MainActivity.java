@@ -90,22 +90,82 @@ public class MainActivity extends ActionBarActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
-        switch (item.getItemId()) {
-            case R.id.create_datab:
-                Intent intent=new Intent(this,MainActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.logout:
-                Intent intent1=new Intent(this,LogActivity.class);
-                startActivity(intent1);
-                break;
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.catalog) {
+            Intent i = new Intent(MainActivity.this.getApplicationContext(), Catalog.class);
+            startActivity(i);
+            return true;
+        } else if (id == R.id.services) {
+            if(LogActivity.loginflag==0)
+            {
+                MyDialogFragment dialog;
+                dialog = new MyDialogFragment();
+                dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+            }
+            else {
+                Intent i = new Intent(MainActivity.this.getApplicationContext(), Services.class);
+                startActivity(i);
+            }
+            return true;
+        }  else if (id == R.id.help) {
+            if(LogActivity.loginflag==0)
+            {
+                MyDialogFragment dialog;
+                dialog = new MyDialogFragment();
+                dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+            }
+
+            else {
+                Intent i = new Intent(MainActivity.this.getApplicationContext(), MainActivity.class);
+                startActivity(i);
+            }
+            return true;
+        }  else if (id == R.id.notifications) {
+            if(LogActivity.loginflag==0)
+            {
+                MyDialogFragment dialog;
+
+
+                dialog = new MyDialogFragment();
+                dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+            }
+            else {
+                Intent i = new Intent(MainActivity.this.getApplicationContext(), Notifications.class);
+                startActivity(i);
+            }
+            return true;
+        }  else if (id == R.id.library_info) {
+            Intent i = new Intent(MainActivity.this.getApplicationContext(), LibraryNews.class);
+            startActivity(i);
+            return true;
+        }   else if (id == R.id.favorites) {
+            if(LogActivity.loginflag==0)
+            {
+                MyDialogFragment dialog;
+                dialog = new MyDialogFragment();
+                dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+            }
+            else {
+                Intent i = new Intent(MainActivity.this.getApplicationContext(), Favorites.class);
+                startActivity(i);
+            }
+            return true;
+        }        if (id == R.id.create_datab) {
+            Intent i = new Intent(MainActivity.this.getApplicationContext(), MainPage.class);
+            startActivity(i);
+            return true;
         }
-        return true;
+
+        return super.onOptionsItemSelected(item);
     }
+
 
     //Inserting user settings
     public void insertBook(View view)
