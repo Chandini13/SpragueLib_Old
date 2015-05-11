@@ -128,6 +128,7 @@ public class Catalog extends ActionBarActivity {
             }
             return true;
         }  else if (id == R.id.library_info) {
+            Log.i("LibInfo --> ", " creating an intent to go to LibraryNews");
             Intent i = new Intent(Catalog.this.getApplicationContext(), LibraryNews.class);
             startActivity(i);
             return true;
