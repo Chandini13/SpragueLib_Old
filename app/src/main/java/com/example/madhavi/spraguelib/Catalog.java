@@ -143,6 +143,10 @@ public class Catalog extends ActionBarActivity {
                 startActivity(i);
             }
             return true;
+        }        if (id == R.id.create_datab) {
+            Intent i = new Intent(Catalog.this.getApplicationContext(), MainPage.class);
+            startActivity(i);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
