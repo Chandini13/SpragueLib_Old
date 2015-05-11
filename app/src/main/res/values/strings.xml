@@ -101,6 +101,15 @@
     <string name="enter_time">Enter Time</string>
     <string name="entertime">Enter time(HH:MM)</string>
     <string name="enter_date">Enter Date(mm-dd-yy)</string>
+    <string name="library_info"><![CDATA[Library Information   Hours & Contacts]]></string>
+    <string name="NOTIFICATIONS">NOTIFICATIONS</string>
+    <string name="SERVICES">SERVICES</string>
+    <string name="SETTINGS">SETTINGS</string>
+    <string name="FAVORITES">FAVORITES</string>
+    <string name="CATALOG">CATALOG</string>
+    <string name="CATALOG_SEARCH">CATALOG SEARCH</string>
+    <string name="welcome_to">WELCOME TO  </string>
+    <string name="sprague_libra">SPRAGUE LIBRARY</string>
 
 
 </resources>

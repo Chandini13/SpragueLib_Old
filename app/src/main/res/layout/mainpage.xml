@@ -1,93 +1,169 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/lightimage"
+    android:background="@drawable/blueb"
+    android:orientation="horizontal"
     tools:context="com.example.madhavi.Sprague Library.mainpage">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+
+
+
+    <TableLayout
+        android:layout_width="206dp"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        android:background="@drawable/bluebb">
+        android:layout_weight="0.33">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/sprague_library"
-            android:id="@+id/textView5"
-            android:layout_above="@+id/button2"
-            android:layout_centerHorizontal="true"
-            android:textSize="@dimen/abc_action_button_min_width_overflow_material" />
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="86dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/welcome_to"
+                android:id="@+id/textView5"
+                android:layout_above="@+id/button2"
+                android:layout_centerHorizontal="true"
+                android:textSize="29dp"
+                android:layout_column="17"
+                android:gravity="center"
+                android:layout_marginLeft="51dp" />
+        </TableRow>
 
         <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CATALOG"
+        android:layout_width="match_parent"
+        android:layout_height="153dp"
+        android:text="@string/CATALOG_SEARCH"
         android:id="@+id/button"
-        android:layout_marginTop="150dp"
-            android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@+id/textView5"
-            android:layout_toStartOf="@+id/textView5" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FAVORITES"
-        android:id="@+id/button2"
-        android:layout_alignTop="@+id/button"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/textView5"
-        android:layout_toEndOf="@+id/textView5" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SETTINGS"
-        android:id="@+id/button3"
-        android:layout_below="@+id/button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/button"
-        android:layout_alignEnd="@+id/button" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LIBRARY INFO."
-        android:id="@+id/button4"
-        android:layout_below="@+id/button2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NOTIFICATIONS"
-        android:id="@+id/button5"
-        android:layout_below="@+id/button3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/button3"
-        android:layout_alignEnd="@+id/button3" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SERVICES"
-        android:id="@+id/button6"
-        android:layout_alignTop="@+id/button5"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/button4"
-        android:layout_alignStart="@+id/button4" />
+        android:layout_marginTop="120dp"
+           />
 
 
-</RelativeLayout>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="153dp"
+                android:text="@string/library_info"
+                android:id="@+id/button4"
+
+                android:layout_column="17" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="153dp"
+                android:text="@string/SETTINGS"
+                android:id="@+id/button3"
+                android:layout_below="@+id/button"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@+id/button"
+                android:layout_alignEnd="@+id/button"
+                android:layout_column="17" />
+        </TableRow>
+
+
+    </TableLayout>
+    <TableLayout
+        android:layout_width="206dp"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:layout_weight="0.33">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="86dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/sprague_libra"
+                android:id="@+id/textView11"
+                android:layout_above="@+id/button2"
+                android:layout_centerHorizontal="true"
+                android:textSize="29dp"
+                android:layout_column="17"
+                android:gravity="center" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="153dp"
+                android:text="@string/SERVICES"
+                android:id="@+id/button6"
+
+                android:layout_column="17"
+                android:layout_marginTop="120dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <Button
+            android:layout_width="wrap_content"
+            android:layout_height="153dp"
+            android:text="@string/NOTIFICATIONS"
+            android:id="@+id/button5"
+
+                android:layout_column="17" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <Button
+            android:layout_width="wrap_content"
+            android:layout_height="153dp"
+            android:text="@string/FAVORITES"
+            android:id="@+id/button2"
+            android:layout_alignTop="@+id/button"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/textView5"
+            android:layout_toEndOf="@+id/textView5"
+                android:layout_column="17" />
+        </TableRow>
+
+
+    </TableLayout>
 
 </LinearLayout>
