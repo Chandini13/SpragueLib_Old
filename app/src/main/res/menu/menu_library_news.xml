@@ -1,7 +1,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="books.libraryapplication.LibraryNews">
+    >
+
+
+    <item
+        android:id="@+id/More"
+        android:title="...."
+        android:icon="@drawable/dropdown"
+        app:showAsAction="always" >
+
+        <menu>
+
     <item android:id="@+id/create_datab"
         android:title="HOME"
         android:icon="@drawable/ic_launcher" />
@@ -23,4 +32,8 @@
     <item android:id="@+id/help"
         android:title="Settings"
         android:icon="@drawable/ic_launcher" />
+</menu>
+    </item>
+
+
 </menu>

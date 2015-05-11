@@ -83,7 +83,7 @@ public class StudyRoomRental extends ActionBarActivity {
                 startActivity(i);
             }
             return true;
-        }  else if (id == R.id.library_info) {
+        }  else if (id == R.id.lib_info) {
             Intent i = new Intent(StudyRoomRental.this.getApplicationContext(), LibraryNews.class);
             startActivity(i);
             return true;
